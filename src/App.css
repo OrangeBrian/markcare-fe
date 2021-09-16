@@ -1,0 +1,419 @@
+
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.RegisterNavBar{
+  border-bottom: 2pt;
+  background-color: #ffffffff;
+}
+
+.lContainer {
+  margin-top: -1%;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 100vh;
+  background-color: #f6f6f6;
+}
+
+.locationContainer {
+  display:grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  grid-template-rows: 25vh;
+  grid-template-columns: 100%;
+  margin-top: -12px;
+}
+.branchConfirmContainer {
+  display:grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  grid-template-rows: 25vh;
+  grid-template-columns: 100%;
+  margin-top: -12px;
+}
+.shopContainer .row{
+  margin-top: 8%;
+}
+
+.shopContainer {
+  display:grid;
+  justify-items:center;
+  align-items: center;
+  background-color: #f6f6f6;
+  grid-template-rows: 30vh;
+  grid-template-columns: 100%;
+  margin-top: -12px; 
+}
+.locationContainer .row{
+  margin-top: 8%;
+}
+
+.shopselect .imgStore{
+ size: 50px;
+ padding: 0;
+ margin-left: 60%;
+
+}
+.registeraddress{
+  display:grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50% 50% ;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin-top: -30px;
+  margin-bottom: 40px;
+}
+.map{
+  display:grid;
+  grid-template-columns: auto;
+  grid-template-rows: 80% 50% ;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin-top: -30px;
+  margin-bottom: 40px;
+}
+
+.currentlocation{
+  display:grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50% 50% ;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin-bottom: 40px;
+}
+.locationContainer img{
+  width: 30%;
+  margin-top: 15%;
+  margin-bottom: 10%;
+}
+
+.branchConfirmContainer img{
+ width:30%;
+ border: black 50px solid;
+ border-width: 1px;
+}
+
+.spanLink{
+  color: #0d4d90;
+  background-color: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+/* FOOTER */
+.footer {
+  color: rgb(206, 212, 217);
+  text-align: center;
+  font-size: 12px;
+  padding: 1rem;
+  user-select: none;
+  margin-top:-45px;
+}
+
+.footerShop {
+  height: 150px;
+  width: auto;
+  background-color: #0d4d90;
+  display:grid;
+  grid-template-columns: 33% 34% 33%;
+  margin-top: -10px;
+  grid-template-rows: 12vh; 
+}
+
+.footerShop .socialmedia{
+  margin-left: 45%;
+}
+
+.socialmedia{
+  margin-left: 30%;
+  margin-bottom: 50%;
+  width: 180px;
+}
+
+.socialmedia h6{
+  margin-top: 30px;
+  padding-left: 8%;
+  font-weight: unset;
+}
+
+.terms{
+  display: grid;
+  height: 50%;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.terms a{
+  color: #f6f6f6;
+  margin-left: 1%;
+  margin-top: 0.5%;
+}
+
+.followtext{
+  color: #f6f6f6;
+  margin-left: 2px;
+}
+
+.logoCompany{
+  margin-top: 40px;
+  height: 60px;
+}
+.footerShop .companylogo{
+  text-align: center;
+}
+.socialnetworks{
+  width: 25%;
+  margin-top: 10px;
+  padding-left: 8%;
+}
+
+.shopselect{
+  display:grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50% 50% ;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin-bottom: 50px;
+  margin-right: 5em;
+  margin-top: -60px;
+}
+
+.txtlocation{
+  margin-top: 40px;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.imgStore{
+  margin-bottom: 20%;
+  margin-top: 25%; 
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.login-form {
+  width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+
+.register-form {
+  width: 300px;
+}
+.register-form-forgot {
+  float: right;
+}
+.register-form-button {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.lItem {
+  width:300px;
+}
+
+.loginForm {
+  background-color: white;
+  padding-left: 30px;
+  padding-top: 20px;
+    margin-top: -60px;
+    margin-left:-30px;
+    margin-right:-30px;
+    border-radius: 8px;
+    border: 1px solid #d8d8da;
+}
+
+
+.loginImage {
+  margin-top: -40%;
+  margin-bottom: 30%;
+}
+.registerImage {
+  margin-top: 40%;
+  margin-bottom: 30%;
+}
+
+.indexImg{
+  border-top: 1px solid #d8d8da;
+}
+
+.centerImg{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.logofooter{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.registerForm {
+  background-color: white;
+  padding-left: 30px;
+  padding-top: 20px;
+  margin-top: -60px;
+  margin-left:-30px;
+  margin-right:-30px;
+  border-radius: 8px;
+  border: 1px solid #d8d8da;
+}
+
+tbody {
+  font-size: 14px;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: rgb(206, 212, 217);;
+}
+
+.ant-dropdown-link{
+  font-size: xx-large;
+}
+
+.back{
+ font-size: xx-large; 
+}
+.BranchContainer {
+  display:grid;
+  grid-template-columns: auto;
+  justify-items: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  grid-template-rows: 25vh;
+  margin-top: -12px;
+}
+.branch{
+  display:flex;
+}
+/* BUTTONS*/
+.register-form .register-form-button{
+  background-color: #0d4d90;
+  border: 0;
+}
+.loginForm .login-form-button{
+  background-color: #0d4d90;
+  border: 0;
+}
+.RegisterNavBar a{
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 2px 24px 8px;
+  border:0;
+  border-radius: 5px;
+  width: 10%;
+}
+.branch a{
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 6px 20px;
+  border:0;
+  border-radius: 5px;
+  height: 35%;
+}
+.shopContainer a{
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 6px 20px;
+  border:0;
+  border-radius: 5px;
+  height: 35%;
+  margin-left: 60%;
+}
+.locationContainer a{
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 6px 24px 8px;
+  border:0;
+  border-radius: 5px;
+  height: 35%;
+}
+
+.branchConfirmContainer a{
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 6px 24px 8px;
+  border:0;
+  border-radius: 5px;
+  width: 20%;
+  margin-bottom: 10%;
+}
+ .container .col .nav{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom: 3%;
+  margin-left: 60%; 
+}
+.nav-item a {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #0d4d90;
+  padding: 2px 24px 8px;
+  border:0;
+  border-radius: 5px;
+  
+}
+
+.imgStore{
+  margin-top: 0px;
+  padding-right: 40px;
+  margin-bottom: 50px;
+}
+.BranchContainer p{
+  justify-content: space-around;
+  padding-right: 40px;
+  margin-top:20px ;
+  margin-bottom: 50px;
+  font-weight: bolder;
+  white-space: pre;
+  
+}
+.BranchContainer a{
+  margin-top:40px ;
+  padding-left: 5%;
+  padding-right: 5% ;
+  margin-bottom: 50px;
+}
