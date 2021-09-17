@@ -42,12 +42,12 @@ const menu = (
 const Branch = () => {
     return (
         <div>
-            <div className="RegisterNavBar">
+            <div className="navBar2">
                 <div className="row">
-                    <div className="col">
+                    <div className="col2">
                         <a href="/" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
                     </div>
-                    <div className="col">
+                    <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
                                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -64,52 +64,50 @@ const Branch = () => {
                     <h3>Selecciona sucursal</h3>
                 </div>
                      <div className="branch">
-                            <img src={iconoSucursal}  className="imgStore" alt="Register Address" style={{ position: "relative"}}  />
+                            <img src={iconoSucursal}  className="imgBranch" alt="Register Address" style={{ position: "relative"}}  />
                             <div className="text">
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 1 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Seleccionar</a>
-                    </div>  
+                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                    </div> 
                     <div className="branch">
-                            <img src={iconoSucursal}  className="imgStore" alt="Register Address" style={{ position: "relative"}}  />
+                            <img src={iconoSucursal}  className="imgBranch" alt="Register Address" style={{ position: "relative"}}  />
                             <div className="text">
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 2 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
                     </div>
 
                     <div className="branch">
-                            <img src={iconoSucursal}  className="imgStore" alt="Register Address" style={{ position: "relative"}}  />
+                            <img src={iconoSucursal}  className="imgBranch" alt="Register Address" style={{ position: "relative"}}  />
                             <div className="text">
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 3 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
                     </div>  
                     
             </div>
-            <div className="footerShop">
-                <div className="terms">
-                    <a href="http://argendev.com.ar">Nosotros</a>
-                    <a href="">Privacidad</a>
-                    <a href="">Términos y Condiciones</a>
-                    <a href="">ARGENDEV <span>©</span> 2020-2021</a>
-                </div>
-               <div className="companylogo">
-               <img className="logoCompany" src={logoargendev} alt="logoCompany"  />
-               </div>
-                <div className="socialmedia">
-                    <h6 className="followtext">Seguinos en</h6>
-                    <div>
-                        <img href="https://facebook.com/" src={logfacebook} className="socialnetworks" />
-                        <img href="https://instagram.com/" src={loginstagram} className="socialnetworks" />
-                        <img href="https://youtube.com/" src={logyoutube} className="socialnetworks" />
-                        <img href="https://twitter.com/" src={logtwitter} className="socialnetworks" />
+            <div className="footer">
+                        <footer>
+                    <div class="contenedor">
+                     <div class="parrafo">
+                    <p>© 2021 ArgenDev. <br/>Todos los derechos reservados.</p>
+                     </div> 
+                     <div className="logoArgenDevFooter"> 
+                     <img src={logoargendev} alt="logoArgenDev" />
+                     </div>
+                     <div class="redes">
+                    <a href="https://www.facebook.com"><img src={logfacebook} alt="facebook" /></a>
+                    <a href="https://www.linkedin.com"><img src={logtwitter} alt="twitter"/></a>
+                    <a href="https://www.instagram.com"><img src={loginstagram} alt="instagram"/></a>
+                    <a href="https://twitter.com"><img src={logyoutube} alt=""/></a>
                     </div>
-                </div>
-            </div>
+                    </div>
+                    </footer>
+                    </div> 
             </div>
     )
 }

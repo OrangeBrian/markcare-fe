@@ -6,15 +6,13 @@ const FormItem = Form.Item;
 const Register = () => {
     return (
         <div>
-            <div className="RegisterNavBar">
-                <a href="/"class="btn btn-primary btn-sm" role="button" aria-pressed="true">Volver</a>
+            <div className="navBar1">
+                <a href="/"class="btn" role="button" aria-pressed="true">Volver</a>
             </div>
             <hr />
             <div className={"lContainer"}>
                 <div className="lItem">
-                    <div className="registerImage">
-                        <img src={loginImg} width="300"  alt="register" />
-                    </div>
+                        <img src={loginImg} className="logomc"  alt="login" />
                     <div className="registerForm">
                         <h2>Register</h2>
                         <Form onSubmit="" className="register-form">
@@ -59,15 +57,11 @@ const Register = () => {
                                     type="primary"
                                     htmlType="submit"
                                     className="register-form-button"
-                                >
-                                    Register User
+                                >Register User
                                 </Button>
                             </FormItem>
                         </Form>
                     </div>
-                </div>
-                <div className="footer">
-                    <a href="" target="_blank" rel="noopener noreferrer" className="footerLink">Powered by React</a>
                 </div>
             </div>
         </div>

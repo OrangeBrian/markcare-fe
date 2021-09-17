@@ -13,11 +13,13 @@ import Shop from './components/Shop'
 import Location from './components/Location';
 import Branch from './components/Branch';
 import BranchConfirm from './components/BranchConfirm';
+import DateSelect from './components/DateSelect';
+import DateConfirm from './components/DateConfirm';
 
 function App() {
   return (
     <Router>
-    <div className="container">
+      <div className="container">
         <Switch>
           <Route path='/login'>
             <Login />
@@ -40,8 +42,14 @@ function App() {
           <Route path='/BranchConfirm'>
             <BranchConfirm />
           </Route>
+          <Route path='/DateSelect'>
+            <DateSelect />
+          </Route>
+          <Route path='/DateConfirm'>
+            <DateConfirm />
+          </Route>
         </Switch>
-    </div>
+      </div>
     </Router>
   );
 }

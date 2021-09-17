@@ -2,18 +2,18 @@
     Importo toda la libreria React para utilizar todas sus funciones, etc
 */
 import React from 'react';
+
+
 /* 
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
 import logoargendev from './images/logoArgendev.png';
-import locationStoreImg from './images/locationStore.png';
-import userLocationImg from './images/userLocation.png';
 import logfacebook from "./images/fb.png"
 import logtwitter from "./images/tw.png"
 import loginstagram from "./images/ig.png"
 import logyoutube from "./images/yt.png"
-
+import logo from './images/logo.png'
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
     componentes de interfaz para aplicaciones web y 
@@ -21,7 +21,6 @@ import logyoutube from "./images/yt.png"
 */
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
-
 
 const menu = (
     <Menu>
@@ -37,7 +36,7 @@ const menu = (
     </Menu>
 );
 
-const Location = () => {
+const DateConfirm = () => {
     return (
         <div>
             <div className="navBar2">
@@ -57,19 +56,19 @@ const Location = () => {
                 </div>
             </div>
             <hr />
-            <div className="locationContainer">
-                <div className="locationCol">
-                    <div className="txtLocation">
-                        <h3>Selecciona tu ubicación</h3>
-                    </div>
-                    <div className="registeraddress">
-                        <img src={locationStoreImg} alt="Register Address" />
-                        <a href="/registeraddress" class="btn" role="button" aria-pressed="true">Direccion registrada</a>
-                    </div>
-                    <div className="currentlocation">
-                        <img src={userLocationImg} alt="Current Location" />
-                        <a href="currentlocation" class="btn" role="button" aria-pressed="true" style={{ width: "60%" }}>Ubicación actual</a>
-                    </div>
+            <div className="dateConfirmContainer">
+                <img src={logo} className="logo"  alt="login" />
+                <div className="txtlocation">
+                    <h3>Gracias por elegirnos</h3>
+                </div>  
+                <div className="txtDateConfirm">
+                    <h6>Turno reservado para:</h6>
+                    <h6 id="dia">campo para dia:</h6>
+                    <h6 id="hora">campo para hora:</h6>
+                </div>
+                <div className="buttonDateConfirm">
+                <a href="currentlocation" class="btn" role="button" aria-pressed="true">Nuevo turno</a>
+                <a href="currentlocation" class="btn" role="button" aria-pressed="true">Salir</a>
                 </div>
             </div>
             <div className="footer">
@@ -82,10 +81,10 @@ const Location = () => {
                             <img src={logoargendev} alt="logoArgenDev" />
                         </div>
                         <div class="redes">
-                            <a href="https://www.facebook.com/charly.faluotico"><img src={logfacebook} alt="facebook" /></a>
-                            <a href="https://www.linkedin.com/in/carlos-faluotico-55339a4b/"><img src={logtwitter} alt="twitter" /></a>
-                            <a href="https://github.com/cfaluotico"><img src={loginstagram} alt="instagram" /></a>
-                            <a href="https://twitter.com/CharlyFaluotico"><img src={logyoutube} alt="" /></a>
+                            <a href="https://www.facebook.com"><img src={logfacebook} alt="facebook" /></a>
+                            <a href="https://www.linkedin.com"><img src={logtwitter} alt="twitter" /></a>
+                            <a href="https://www.instagram.com"><img src={loginstagram} alt="instagram" /></a>
+                            <a href="https://twitter.com"><img src={logyoutube} alt="" /></a>
                         </div>
                     </div>
                 </footer>
@@ -93,4 +92,4 @@ const Location = () => {
         </div>
     )
 }
-export default Location
+export default DateConfirm
