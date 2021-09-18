@@ -92,7 +92,24 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
-            S
+            <div className="footer">
+                <footer>
+                    <div class="contenedor">
+                        <div class="parrafo">
+                            <p>© 2021 ArgenDev. <br />Todos los derechos reservados.</p>
+                        </div>
+                        <div className="logoArgenDevFooter">
+                            <img src={logoargendev} alt="logoArgenDev" />
+                        </div>
+                        <div class="redes">
+                            <a href="https://www.facebook.com/charly.faluotico"><img src={logfacebook} alt="facebook" /></a>
+                            <a href="https://www.linkedin.com/in/carlos-faluotico-55339a4b/"><img src={logtwitter} alt="twitter" /></a>
+                            <a href="https://github.com/cfaluotico"><img src={loginstagram} alt="instagram" /></a>
+                            <a href="https://twitter.com/CharlyFaluotico"><img src={logyoutube} alt="" /></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
 
         </div>
     )
