@@ -12,6 +12,11 @@ import disco from "../images/discoLogo.png";
 import jumbo from "../images/jumboLogo.png";
 import coto from "../images/cotoLogo.png";
 import dia from "../images/diaLogo.png";
+import logoargendev from '../images/logoArgendev.png';
+import logfacebook from "../images/fb.png";
+import logtwitter from "../images/tw.png";
+import loginstagram from "../images/ig.png";
+import logyoutube from "../images/yt.png";
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
     componentes de interfaz para aplicaciones web y 
