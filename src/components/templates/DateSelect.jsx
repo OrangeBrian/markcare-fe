@@ -2,18 +2,17 @@
     Importo toda la libreria React para utilizar todas sus funciones, etc
 */
 import React from 'react';
+
+
 /* 
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import logoargendev from './images/logoArgendev.png';
-import locationStoreImg from './images/locationStore.png';
-import userLocationImg from './images/userLocation.png';
-import logfacebook from "./images/fb.png"
-import logtwitter from "./images/tw.png"
-import loginstagram from "./images/ig.png"
-import logyoutube from "./images/yt.png"
-import mapa from "./images/mapa.jpg"
+import logoargendev from '../images/logoArgendev.png';
+import logfacebook from "../images/fb.png";
+import logtwitter from "../images/tw.png";
+import loginstagram from "../images/ig.png";
+import logyoutube from "../images/yt.png";
 
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
@@ -22,7 +21,6 @@ import mapa from "./images/mapa.jpg"
 */
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
-
 
 const menu = (
     <Menu>
@@ -33,12 +31,12 @@ const menu = (
             <a href="/editprofile">Editar perfil</a>
         </Menu.Item>
         <Menu.Item key="2">
-            <a href="/logout">Cerrar sesion</a>
+            <a href="/">Cerrar sesion</a>
         </Menu.Item>
     </Menu>
 );
 
-const BranchConfirm = () => {
+const DateSelect = () => {
     return (
         <div>
             <div className="navBar2">
@@ -58,13 +56,20 @@ const BranchConfirm = () => {
                 </div>
             </div>
             <hr />
-            <div className="branchConfirmContainer">
-
-                <h3>Confirma la sucursal seleccionada</h3>
-                <div className="map">
-                    <img src={mapa} alt="map" />
-                    <a href="/map" class="btn" role="button" aria-pressed="true">Confirmar</a>
+            <div className="dataSelectContainer">
+                <div className="txtlocation">
+                    <h3>Selecciona un turno</h3>
                 </div>
+                <form action="/send.php">
+                    <p>Seleccionar fecha: <br /> <br />
+                        <input type="date" id="fecha1" name="fecha1" min="2021-09-01" max="2021-12-31" step="1" />
+                    </p>
+                    <p>Seleccionar hora: <br />
+                    </p>
+                    <input type="number" min="8" max="20" step="1" />
+                    <br /> <br />
+                    <input id="boton" type="submit" value="Seleccionar" />
+                </form>
             </div>
             <div className="footer">
                 <footer>
@@ -84,8 +89,7 @@ const BranchConfirm = () => {
                     </div>
                 </footer>
             </div>
-
         </div>
     )
 }
-export default BranchConfirm
+export default DateSelect

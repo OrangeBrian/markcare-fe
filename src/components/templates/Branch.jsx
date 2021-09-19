@@ -6,17 +6,12 @@ import React from 'react';
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import logoargendev from './images/logoArgendev.png';
-import logfacebook from "./images/fb.png"
-import logtwitter from "./images/tw.png"
-import loginstagram from "./images/ig.png"
-import logyoutube from "./images/yt.png"
-import carrefour from "./images/carrefourLogo.png"
-import walmart from "./images/wallmartLogo.png"
-import disco from "./images/discoLogo.png"
-import jumbo from "./images/jumboLogo.png"
-import coto from "./images/cotoLogo.png"
-import iconoSucursal from "./images/iconoSucursal.png"
+import logoargendev from '../images/logoArgendev.png';
+import logfacebook from "../images/fb.png";
+import logtwitter from "../images/tw.png";
+import loginstagram from "../images/ig.png";
+import logyoutube from "../images/yt.png";
+import iconoSucursal from "../images/iconoSucursal.png";
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
     componentes de interfaz para aplicaciones web y 
@@ -34,7 +29,7 @@ const menu = (
             <a href="/editprofile">Editar perfil</a>
         </Menu.Item>
         <Menu.Item key="2">
-            <a href="/logout">Cerrar sesion</a>
+            <a href="/">Cerrar sesion</a>
         </Menu.Item>
     </Menu>
 );
