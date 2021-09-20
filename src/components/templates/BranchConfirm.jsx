@@ -61,7 +61,7 @@ const BranchConfirm = () => {
                 <h3>Confirma la sucursal seleccionada</h3>
                 <div className="map">
                     <img src={mapa} alt="map" />
-                    <a href="/map" class="btn" role="button" aria-pressed="true">Confirmar</a>
+                    <a href="/dateselect" class="btn" role="button" aria-pressed="true">Confirmar</a>
                 </div>
             </div>
             <div className="footer">

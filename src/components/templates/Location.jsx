@@ -64,11 +64,11 @@ const Location = () => {
                     </div>
                     <div className="registeraddress">
                         <img src={locationStoreImg} alt="Register Address" />
-                        <a href="/registeraddress" class="btn" role="button" aria-pressed="true">Direccion registrada</a>
+                        <a href="/shop" class="btn" role="button" aria-pressed="true">Direccion registrada</a>
                     </div>
                     <div className="currentlocation">
                         <img src={userLocationImg} alt="Current Location" />
-                        <a href="currentlocation" class="btn" role="button" aria-pressed="true" style={{ width: "60%" }}>Ubicación actual</a>
+                        <a href="/shop" class="btn" role="button" aria-pressed="true" style={{ width: "60%" }}>Ubicación actual</a>
                     </div>
                 </div>
             </div>

@@ -67,8 +67,8 @@ const DateConfirm = () => {
                     <h6 id="hora">campo para hora:</h6>
                 </div>
                 <div className="buttonDateConfirm">
-                <a href="currentlocation" class="btn" role="button" aria-pressed="true">Nuevo turno</a>
-                <a href="currentlocation" class="btn" role="button" aria-pressed="true">Salir</a>
+                <a href="/shop" class="btn" role="button" aria-pressed="true">Nuevo turno</a>
+                <a href="/" class="btn" role="button" aria-pressed="true">Salir</a>
                 </div>
             </div>
             <div className="footer">

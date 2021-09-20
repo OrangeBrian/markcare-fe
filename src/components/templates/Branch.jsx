@@ -64,7 +64,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 1 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
                     </div> 
                     <div className="branch">
                             <img src={iconoSucursal}  className="imgBranch" alt="Register Address" style={{ position: "relative"}}  />
@@ -72,7 +72,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 2 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
                     </div>
 
                     <div className="branch">
@@ -81,7 +81,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 3 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/registeraddress" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
                     </div>  
                     
             </div>
