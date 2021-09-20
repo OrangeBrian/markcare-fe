@@ -14,25 +14,25 @@ las imagenes del maquetado del proyecto se almacenan en  [google drive  ](https:
 The link is inserted to access support files related to the database. [google drive  ](https://drive.google.com/drive/folders/1AB-SKnXvBrATgMVoQ1Omx_MgbUUdIKR9)
 
 ### Installation 🔧
-
+```bash
+npm install
+npm start
+```
 ## Test ⚙️
 
-### Analyze test end-to-end 🔩
-
-### Coding style tests ⌨️
 
 ## Deploy 📦
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
 
 ## Built with  🛠️
+</a> <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
 
-## Wiki 📖
 
 ## Versioned 📌
 
-Use (http://github.com/) for versioning. For all available versions, look at [tags in this repository](https://github.com/11Feldman/ArgenDev/tags).
+Use (http://github.com/) for versioning. For all available versions, look at [tags in this repository](https://github.com/OrangeBrian/markcare-fe/tags).
 
 ## Authors ✒️
+Ariel Feldman - Brian Orange - Carlos Faluotico - Sofia Aguirre
 
-## License 📄
 
-## Expressions of gratitude 🎁
