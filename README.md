@@ -33,6 +33,7 @@ npm start
 Use (http://github.com/) for versioning. For all available versions, look at [tags in this repository](https://github.com/OrangeBrian/markcare-fe/tags).
 
 ## Authors ✒️
-Ariel Feldman - Brian Orange - Carlos Faluotico - Sofia Aguirre
 
+| [<img alt="Ariel-Feldman" src="https://media-exp1.licdn.com/dms/image/C4E03AQEA4iojw9sQ1Q/profile-displayphoto-shrink_200_200/0/1619551469697?e=1637798400&v=beta&t=jOp7B01ENt24iQBHLDFI4HdMa27bjJ18WLcUHdLHzaM" width="115"><br><sub>@11Feldman</sub>](https://github.com/11Feldman) | [<img alt="Orange-Brian" src="https://media-exp1.licdn.com/dms/image/C4E03AQFp3w3dFcpHiQ/profile-displayphoto-shrink_200_200/0/1578515259558?e=1637798400&v=beta&t=aHbivuFLOMvWZTFjAqxTiHR0baidz8VixevRvsT1duw" width="115"><br><sub>@OrangeBrian</sub>](https://github.com/OrangeBrian) | [<img alt="Carlos-Faluotico" src="https://media-exp1.licdn.com/dms/image/C5603AQHQC00hEpY3TA/profile-displayphoto-shrink_200_200/0/1605281290331?e=1637798400&v=beta&t=q7a3g_wG87LHNA3FFeD1x1wQR2HtDf4pRu4n0ifXxYY" width="115"><br><sub>@cfaluotico</sub>](https://github.com/cfaluotico) | [<img alt="Sofia-Aguirre" src="https://media-exp1.licdn.com/dms/image/C4D03AQGVGSrVUlDq9g/profile-displayphoto-shrink_200_200/0/1629398222318?e=1637798400&v=beta&t=6BEXYg6ibRcSYzJVZgoqy5MHPke-RZJig5osMp7sac0" width="115"><br><sub>@SofiaAguirre</sub>](https://github.com/SofiaAguirre) |
+| :---: |:---: |:---: |:---: 
 
