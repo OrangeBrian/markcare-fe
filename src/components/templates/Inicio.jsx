@@ -14,11 +14,7 @@ import dia from "../images/diaLogo.png";
 import compras from "../images/compras.png";
 import www from "../images/www.png";
 import accesoLogo from "../images/accesoLogo.png";
-import logfacebook from "../images/fb.png";
-import logtwitter from "../images/tw.png";
-import loginstagram from "../images/ig.png";
-import logyoutube from "../images/yt.png";
-import logoargendev from '../images/logoArgendev.png';
+import FooterComp from './FooterComp';
 
 const Inicio = () => {
     return (
@@ -84,21 +80,8 @@ const Inicio = () => {
                 <h6>Sin descargarte ninguna app solo entrando en tu navegador</h6>
             </div>
             <footer>
-                <div class="contenedor">
-                    <div class="parrafo">
-                        <p>© 2021 ArgenDev. <br />Todos los derechos reservados.</p>
-                    </div>
-                    <div className="logoArgenDevFooter">
-                        <img src={logoargendev} alt="logoArgenDev" />
-                    </div>
-                    <div class="redes">
-                        <a href="https://www.facebook.com/charly.faluotico"><img src={logfacebook} alt="facebook" /></a>
-                        <a href="https://www.linkedin.com/in/carlos-faluotico-55339a4b/"><img src={logtwitter} alt="twitter" /></a>
-                        <a href="https://github.com/cfaluotico"><img src={loginstagram} alt="instagram" /></a>
-                        <a href="https://twitter.com/CharlyFaluotico"><img src={logyoutube} alt="" /></a>
-                    </div>
-                </div>
-            </footer>
+                <FooterComp/>
+           </footer>
         </div>
 
 

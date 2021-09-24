@@ -578,9 +578,8 @@ footer {
   position: relative;
   width: 100%;
   background: #0d4d90;
-  padding: 40px 0;
-  top: 100%;
-  bottom: 0%;
+  padding: 20px 0;
+  margin-bottom: 0%;
   clear: both;
 }
 
@@ -595,7 +594,7 @@ footer .contenedor {
 footer p {
   color: rgb(255, 255, 255);
   text-align: left;
-  font-size: 10pts;
+  font-size: 1.5vw;
 }
 
 footer img {

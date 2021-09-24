@@ -9,11 +9,6 @@ import React from 'react';
 import logoargendev from '../images/logoArgendev.png';
 import locationStoreImg from '../images/locationStore.png';
 import userLocationImg from '../images/userLocation.png';
-import logfacebook from "../images/fb.png";
-import logtwitter from "../images/tw.png";
-import loginstagram from "../images/ig.png";
-import logyoutube from "../images/yt.png";
-
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
     componentes de interfaz para aplicaciones web y 
@@ -21,7 +16,7 @@ import logyoutube from "../images/yt.png";
 */
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
-
+import FooterComp from './FooterComp';
 
 const menu = (
     <Menu>
@@ -72,24 +67,9 @@ const Location = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer">
                 <footer>
-                    <div class="contenedor">
-                        <div class="parrafo">
-                            <p>© 2021 ArgenDev. <br />Todos los derechos reservados.</p>
-                        </div>
-                        <div className="logoArgenDevFooter">
-                            <img src={logoargendev} alt="logoArgenDev" />
-                        </div>
-                        <div class="redes">
-                            <a href="https://www.facebook.com/charly.faluotico"><img src={logfacebook} alt="facebook" /></a>
-                            <a href="https://www.linkedin.com/in/carlos-faluotico-55339a4b/"><img src={logtwitter} alt="twitter" /></a>
-                            <a href="https://github.com/cfaluotico"><img src={loginstagram} alt="instagram" /></a>
-                            <a href="https://twitter.com/CharlyFaluotico"><img src={logyoutube} alt="" /></a>
-                        </div>
-                    </div>
+                    <FooterComp/>
                 </footer>
-            </div>
         </div>
     )
 }

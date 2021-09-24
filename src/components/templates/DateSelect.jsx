@@ -8,11 +8,7 @@ import React from 'react';
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import logoargendev from '../images/logoArgendev.png';
-import logfacebook from "../images/fb.png";
-import logtwitter from "../images/tw.png";
-import loginstagram from "../images/ig.png";
-import logyoutube from "../images/yt.png";
+
 
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
@@ -21,6 +17,7 @@ import logyoutube from "../images/yt.png";
 */
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
+import FooterComp from './FooterComp';
 
 const menu = (
     <Menu>
@@ -71,24 +68,10 @@ const DateSelect = () => {
                     <input id="boton" type="submit" value="Seleccionar" />
                 </form>
             </div>
-            <div className="footer">
                 <footer>
-                    <div class="contenedor">
-                        <div class="parrafo">
-                            <p>© 2021 ArgenDev. <br />Todos los derechos reservados.</p>
-                        </div>
-                        <div className="logoArgenDevFooter">
-                            <img src={logoargendev} alt="logoArgenDev" />
-                        </div>
-                        <div class="redes">
-                            <a href="https://www.facebook.com"><img src={logfacebook} alt="facebook" /></a>
-                            <a href="https://www.linkedin.com"><img src={logtwitter} alt="twitter" /></a>
-                            <a href="https://www.instagram.com"><img src={loginstagram} alt="instagram" /></a>
-                            <a href="https://twitter.com"><img src={logyoutube} alt="" /></a>
-                        </div>
-                    </div>
+                <FooterComp/> 
                 </footer>
-            </div>
+            
         </div>
     )
 }

@@ -189,9 +189,6 @@ const Editprofile = () => {
                         </Form>
                     </div>
                 </div>
-                <div className="footer">
-                    <a href="" target="_blank" rel="noopener noreferrer" className="footerLink">Powered by React</a>
-                </div>
             </div>
         </div>
     )

@@ -106,24 +106,7 @@ const Myshifts = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer">
-                <footer>
-                    <div class="contenedor">
-                        <div class="parrafo">
-                            <p>© 2021 ArgenDev. <br />Todos los derechos reservados.</p>
-                        </div>
-                        <div className="logoArgenDevFooter">
-                            <img src={logoargendev} alt="logoArgenDev" />
-                        </div>
-                        <div class="redes">
-                            <a href="https://www.facebook.com"><img src={logfacebook} alt="facebook" /></a>
-                            <a href="https://www.linkedin.com"><img src={logtwitter} alt="twitter" /></a>
-                            <a href="https://www.instagram.com"><img src={loginstagram} alt="instagram" /></a>
-                            <a href="https://twitter.com"><img src={logyoutube} alt="" /></a>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+            
         </div>
     )
 }
