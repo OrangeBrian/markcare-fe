@@ -38,7 +38,7 @@ const DateConfirm = () => {
             <div className="navBar2">
                 <div className="row">
                     <div className="col2">
-                        <a href="/" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
+                        <a href="/dateselect" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
                     </div>
                     <div className="col2">
                         <div className="nav justify-content-end">
@@ -64,7 +64,7 @@ const DateConfirm = () => {
                 </div>
                 <div className="buttonDateConfirm">
                 <a href="/shop" class="btn" role="button" aria-pressed="true">Nuevo turno</a>
-                <a href="/" class="btn" role="button" aria-pressed="true">Salir</a>
+                <a href="/location" class="btn" role="button" aria-pressed="true">Salir</a>
                 </div>
             </div>
                 <footer>
