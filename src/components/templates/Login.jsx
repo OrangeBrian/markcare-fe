@@ -13,7 +13,7 @@ function getDataUser(usuarioIngresado){
         .then(respuesta=> {
                 if (respuesta.ok) {
                     window.localStorage.setItem('rta','registrado');
-                    return respuesta.json();
+                        return respuesta.json();
                 }else{
                     window.localStorage.setItem('rta','no registrado');
                 }
@@ -25,8 +25,9 @@ function getDataUser(usuarioIngresado){
 
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+
+    let [username, setUsername] = useState('');
+    let [password, setPassword] = useState('');
 
     let loginUser ={
         username1: username,
@@ -39,32 +40,44 @@ const Login = () => {
 
         e.preventDefault();
 
-        console.log('loginUser.username1: ' + loginUser.username1);
-        console.log('username: '+username);
-        console.log('setUsername: '+setUsername);
-
         getDataUser(username);
 
-        window.localStorage.setItem('loginuser',JSON.stringify(loginUser));
-
-        /*
-         Aca deberia ir a buscar al usuario y su contasena a la Api
+        window.localStorage.setItem('loguinUser',JSON.stringify(loginUser));
         
-        let passSave = window.localStorage.getItem('password').replace(/"/g, "");
-        let userSave = window.localStorage.getItem('user').replace(/"/g, "");
-        // .replace(/"/g,"") se usa para separar las comillas dobles de la cadena
+        const dataApiUser = JSON.parse(window.localStorage.getItem('dataUser'));
 
-        if ((password !== passSave) || (username !== userSave)) {
+        setTimeout((e)=>{
+            console.log('esperando');
+        }, 1500);
+
+        if ((dataApiUser.username !== loginUser.username1)) {
+
             setTimeout((e) => {
-                message.error('Usuario o contraseña incorrectos.')
+                message.error('Usuario no registrado.');
             }, 0);
+            
+            document.getElementById('user').value ='';
+            document.getElementById('password').value ='';
+
+        } else if ((dataApiUser.password !== loginUser.password1)){
+
+            setTimeout((e) => {
+                message.error('Contraseña incorrecta');
+            }, 0);
+
+            document.getElementById('user').value ='';
+            document.getElementById('password').value ='';
+
         } else {
-            //alert('ingresaste perro');
-            //Aca nos lleva a alguna pagina luego de ingresar a la app.
-            //setLocation(!location);
+            setTimeout((e) => {
+                message.error('Usuario logueado exitosamente.')
+            }, 0);
             window.location.href = './location'
         }
-        */
+
+        username = null;
+        password = null;
+        
     }
 
     return (
@@ -85,6 +98,7 @@ const Login = () => {
                                         <FormItem>
                                             <Input
                                                 prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+                                                id="user"
                                                 placeholder="Usuario"
                                                 onChange={({ target }) => setUsername(target.value)}
                                             />
@@ -93,6 +107,7 @@ const Login = () => {
                                             <Input
                                                 prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                                 type="password"
+                                                id="password"
                                                 placeholder="Contraseña"
                                                 onChange={({ target }) => setPassword(target.value)}
                                             />

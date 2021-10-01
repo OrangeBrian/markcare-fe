@@ -5,14 +5,10 @@ function getStatusUser(usuarioIngresado){
         .then(respuesta=> {
                 if (respuesta.ok) {
                     window.localStorage.setItem('rta','registrado');
-        //            return respuesta.json();
                 }else{
                     window.localStorage.setItem('rta','no registrado');
                 }
         })
-            //.then(data=>{
-            //    window.localStorage.setItem('datos',JSON.stringify(data));
-            //})
 }
 
 function getDataUser(usuarioIngresado){
@@ -21,10 +17,8 @@ function getDataUser(usuarioIngresado){
     fetch(api+usuarioIngresado)
         .then(respuesta=> {
                 if (respuesta.ok) {
-    //                window.localStorage.setItem('rta','registrado');
                     return respuesta.json();
                 }else{
-    //                window.localStorage.setItem('rta','no registrado');
                 }
         })
             .then(data=>{
@@ -33,18 +27,24 @@ function getDataUser(usuarioIngresado){
 }
 
 //Funcion que envia a la api los datos del nuevo usuario.
-function postDataUser(user, sendData){
-    const api = ''
-    fetch(api+user,{
+function postDataUser(sendData){
+
+    const apiPost = 'https://markcare-be.herokuapp.com/api/customer/save';
+    fetch(apiPost,{
         method:'POST',
-        body: sendData
+        body: sendData,
+        headers: {
+            'content-type': 'application/json '
+        }
     })
-        .then(  res => res.json())
-        .then(  data => console.log(data))
+        .then(  res => {
+            if(res.ok){
+                window.localStorage.setItem('rtaRegistro','registrado');
+            }else{
+                window.localStorage.setItem('rtaRegistro','no registrado');    
+            }
+        })
         .catch( error =>{
-            console.error(error);
-            setTimeout((e) => {
-                message.error('No pudo registrarse') 
-             }, 500);
+            window.localStorage.setItem('rtaRegistro','no registrado');
         });
-}
+}   
