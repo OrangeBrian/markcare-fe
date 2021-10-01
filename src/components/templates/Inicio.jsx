@@ -83,8 +83,6 @@ const Inicio = () => {
                 <FooterComp/>
            </footer>
         </div>
-
-
     )
 }
 

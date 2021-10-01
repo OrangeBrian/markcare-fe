@@ -4,15 +4,52 @@ import Location from './Location';
 import { Form, Icon, Input, Button, message } from "antd";
 const FormItem = Form.Item;
 
+function getDataUser(usuarioIngresado){
+    
+    window.localStorage.removeItem('rta');
+
+    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
+    fetch(api+usuarioIngresado)
+        .then(respuesta=> {
+                if (respuesta.ok) {
+                    window.localStorage.setItem('rta','registrado');
+                    return respuesta.json();
+                }else{
+                    window.localStorage.setItem('rta','no registrado');
+                }
+        })
+            .then(data=>{
+                window.localStorage.setItem('dataUser',JSON.stringify(data));
+            })
+}
+
+
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    let loginUser ={
+        username1: username,
+        password1: password
+    };
+
     const [location, setLocation] = useState(true)
 
     function handleLogin(e) {
+
         e.preventDefault();
 
-        /* Aca deberia ir a buscar al usuario y su contasena a la Api*/
+        console.log('loginUser.username1: ' + loginUser.username1);
+        console.log('username: '+username);
+        console.log('setUsername: '+setUsername);
+
+        getDataUser(username);
+
+        window.localStorage.setItem('loginuser',JSON.stringify(loginUser));
+
+        /*
+         Aca deberia ir a buscar al usuario y su contasena a la Api
+        
         let passSave = window.localStorage.getItem('password').replace(/"/g, "");
         let userSave = window.localStorage.getItem('user').replace(/"/g, "");
         // .replace(/"/g,"") se usa para separar las comillas dobles de la cadena
@@ -27,6 +64,7 @@ const Login = () => {
             //setLocation(!location);
             window.location.href = './location'
         }
+        */
     }
 
     return (

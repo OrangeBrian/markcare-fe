@@ -1,7 +1,46 @@
 import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
+
 const FormItem = Form.Item;
+
+/*
+    CONST: Es una constante la cual NO cambiara su valor en ningún momento en el futuro. 
+    VAR: Es una variable que SI puede cambiar su valor y su scope (alcance) es local. 
+    LET: Es una variable que también podra cambiar su valor, pero solo vivirá(Funcionara) en el bloque donde fue declarada.
+*/
+
+//Funcion que mediante el usuario va a la api a buscar una respuesta.
+function getStatusUser(usuarioIngresado){
+        
+    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
+    fetch(api+usuarioIngresado)
+    .then(respuesta=> {
+            if (respuesta.ok) {
+                window.localStorage.setItem('rta','registrado');
+            }else{
+                window.localStorage.setItem('rta','no registrado');
+            }
+    })
+}
+
+//Funcion que envia a la api los datos del nuevo usuario.
+function postDataUser(user, sendData){
+    const api = ''
+    fetch(api+user,{
+        method:'POST',
+        body: sendData
+    })
+        .then(  res => res.json())
+        .then(  data => console.log(data))
+        .catch( error =>{
+            console.error(error);
+            setTimeout((e) => {
+                message.error('No pudo registrarse') 
+             }, 500);
+        });
+}
+
 
 const Register = () => {
 
@@ -16,58 +55,90 @@ const Register = () => {
     const [address, setAddress] = useState('');
     const [country, setCountry] = useState('');
 
-    //Expresiones regulares para darle validacion a los input.
-    const expresiones = {
-        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        password: /^[a-zA-Z0-9\_\-]{4}$/, // 4 a 12 digitos.
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-        dni: /^\d{5,7}$/ // 5 a 7 numeros.
-    };
 
-    // Accion luego de que toca el boton Registrar.
+    var sendData = {
+        sendUser:user,
+        sendname:name,
+        sendlastname:lastname,
+        sendpassword:password,
+        sendemail:email,
+        sendcellphone:cellphone,
+        sendidlegal:idlegal,
+        sendaddress:address,
+        sendcountry:country,
+    }
+
+
+    //getStatusUser('borange')
+    //var datostodos = JSON.parse(window.localStorage.getItem('datos'));
+    //console.log(datostodos.username);
+
+    function validateEmail(correo) {
+        var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+        var esValido = expReg.test(correo);
+        if (esValido===true){
+            return true;
+        } else {
+            return false;
+        }
+    }    
+
     function handleRegister(e) {
 
-        e.preventDefault();
+        e.preventDefault();//Evita que se procese lo que viene por default en el navegador.
+        
+        window.localStorage.removeItem('rta');
+        getStatusUser(user);
 
-        //esto lo puse para pruebas
-        //let usuarioLocalStorage = window.localStorage.getItem("user").replace(/"/g, "");
-        let usuarioLocalStorage = "ari";
+        let rta = window.localStorage.getItem('rta');
 
+        if (
+            user.length == 0 || email.length == 0 || password.length == 0 || confirmpass.length == 0 || 
+            cellphone.length == 0 || idlegal.length == 0 || address.length == 0 || country.length == 0 ||
+            name.length==0 || lastname.length==0 ) {
 
-        if (!user || !email || !password || !confirmpass || !cellphone || !idlegal || !address || !country) {
-            setTimeout((e) => {
-                message.info('Falta ingresar datos, no es posible registrar al usuario.', 2)
+                setTimeout(() => {
+                    message.info('Hay campos vacios, por favor ingresar todos los campos.',2)
+                }, 500);
+
+        }else if( isNaN(cellphone) ){
+                
+                setTimeout(() => {
+                    message.info('Error en telefono, debe ingresar valores numericos y hasta 15 digitos',2)
+                }, 500);
+                
+        }else if ( (isNaN(idlegal)) ){
+
+            setTimeout(() => {
+                message.info('Error en el dni, debe ingresar valores numericos y 10 digitos',2)
             }, 500);
-        } else if (user === usuarioLocalStorage) {
-            setTimeout((e) => {
-                message.info('Usuario ya registrado', 2)
+
+        }else if(validateEmail(email)==false) {
+
+            setTimeout(() => {
+                message.info('mail incorrecto.',2)
             }, 500);
-        } else if (password !== confirmpass) {
-            setTimeout((e) => {
-                message.error('No coinciden la contraseña y la confirmacion de la misma, no es posible registrar al usuario.', 3)
+
+        }else if(rta=='registrado'){
+
+            setTimeout(() => {
+                message.info('Usuario ya registrado.',2)
             }, 500);
-        } else {
-            setTimeout((e) => {
-                message.success('Usuario registrado', 1)
-            }, 0);
-            /*
-                Aca deberia enviar todos los datos a la BD ya que..
-                Los registros no estan vacios, cumples con sus largos, y tipo de entrada, y a su vez el Usuario no esta en la BD.
-            */
-            window.localStorage.setItem("user", JSON.stringify(user));
-            window.localStorage.setItem("name", JSON.stringify(name));
-            window.localStorage.setItem("lastname", JSON.stringify(lastname));
-            window.localStorage.setItem("email", JSON.stringify(email));
-            window.localStorage.setItem("cellphone", JSON.stringify(cellphone));
-            window.localStorage.setItem("idlegal", JSON.stringify(idlegal));
-            window.localStorage.setItem("password", JSON.stringify(password));
-            window.localStorage.setItem("confirmPass", JSON.stringify(confirmpass));
-            window.localStorage.setItem("address", JSON.stringify(address));
-            window.localStorage.setItem("country", JSON.stringify(country));
-            window.location.href = './login'
+        
+            
+        }else if(password !== confirmpass){
+
+            setTimeout(() => {
+                message.info('Contraseña y confirmacion de contraseña distintas, deben ser iguales.',2)
+            }, 500);
+
+        }else{
+            
+            console.log('vino por aca perro');
+
+            postDataUser(sendData);
         }
+           //window.location.href = './login'
     }
 
     return (
@@ -89,8 +160,6 @@ const Register = () => {
                                     prefix={<Icon type="idcard" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="user"
                                     placeholder="Usuario"
-                                    //minLength="1"
-                                    //pattern={expresiones.usuario}
                                     onChange={({ target }) => setUser(target.value)}
                                 />
                             </FormItem>
@@ -99,8 +168,6 @@ const Register = () => {
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
                                     placeholder="Nombre"
-                                    //pattern={expresiones.password}
-                                    //maxLength="20"
                                     onChange={({ target }) => setName(target.value)}
                                 />
                             </FormItem>
@@ -109,8 +176,6 @@ const Register = () => {
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
                                     placeholder="Apellido"
-                                    //pattern={expresiones.password}
-                                    //maxLength="20"
                                     onChange={({ target }) => setLastName(target.value)}
                                 />
                             </FormItem>
@@ -119,8 +184,6 @@ const Register = () => {
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
                                     placeholder="Contraseña"
-                                    //pattern={expresiones.password}
-                                    //minLength="4"
                                     onChange={({ target }) => setPassword(target.value)}
                                 />
                             </FormItem>
@@ -129,15 +192,13 @@ const Register = () => {
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
                                     placeholder="Confirmar contraseña"
-                                    //minLength="4"
-                                    //pattern={expresiones.password}
                                     onChange={({ target }) => setConfirmpass(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
-                                    type="Email"
+                                    type="text"
                                     placeholder="Email"
                                     onChange={({ target }) => setEmail(target.value)}
                                 />
@@ -147,7 +208,6 @@ const Register = () => {
                                     prefix={<Icon type="home" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="address"
                                     placeholder="Direccion"
-                                    //pattern={expresiones.usuario}
                                     onChange={({ target }) => setAddress(target.value)}
                                 />
                             </FormItem>
@@ -156,18 +216,14 @@ const Register = () => {
                                     prefix={<Icon type="global" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
                                     placeholder="Pais"
-                                    //pattern={expresiones.usuario}
                                     onChange={({ target }) => setCountry(target.value)}
                                 />
-                            </FormItem>
+                            </FormItem>                        
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="shake" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
                                     placeholder="Celular"
-                                    //minLength="10"
-                                    //pattern={expresiones.dni}
-                                    //onKeyPress={expresiones.dni}
                                     onChange={({ target }) => setCellPhone(target.value)}
                                 />
                             </FormItem>
@@ -175,9 +231,7 @@ const Register = () => {
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     placeholder="DNI"
-                                    type="number"
-                                    //pattern={expresiones.dni}
-                                    onKeyPress={expresiones.dni}
+                                    type="text"
                                     onChange={({ target }) => setIdLegal(target.value)}
                                 />
                             </FormItem>
