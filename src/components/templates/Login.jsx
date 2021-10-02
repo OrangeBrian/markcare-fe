@@ -3,7 +3,6 @@ import loginImg from '../images/logo.png'
 import Location from './Location';
 import { Form, Icon, Input, Button, message } from "antd";
 const FormItem = Form.Item;
-import getUser from '../apimethod/accessApi';
 
 function getDataUser(usuarioIngresado){
     
