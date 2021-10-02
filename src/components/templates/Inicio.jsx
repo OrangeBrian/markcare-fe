@@ -19,15 +19,15 @@ import FooterComp from './FooterComp';
 const Inicio = () => {
     return (
         <div>
-            <div class="navIndex">
+            <div className="navIndex">
 
                 <img src={loginImg} alt="register" />
 
-                <div class="buttons">
+                <div className="buttons">
 
-                    <a href="/login" class="btn" role="button" aria-pressed="true">Login</a>
+                    <a href="/login" className="btn" role="button" aria-pressed="true">Login</a>
 
-                    <a href="/register" class="btn" role="button" aria-pressed="true">Register</a>
+                    <a href="/register" className="btn" role="button" aria-pressed="true">Register</a>
 
                 </div>
             </div>
@@ -86,4 +86,4 @@ const Inicio = () => {
     )
 }
 
-export default Inicio
+export default Inicio;

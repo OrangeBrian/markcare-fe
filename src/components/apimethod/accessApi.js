@@ -12,7 +12,7 @@ function getStatusUser(usuarioIngresado){
 }
 
 function getDataUser(usuarioIngresado){
-        
+
     const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
     fetch(api+usuarioIngresado)
         .then(respuesta=> {
@@ -47,6 +47,5 @@ function postDataUser(sendData){
             window.localStorage.setItem('rtaRegistro','no registrado');
         });
 }
-
 
 export default {getDataUser,getStatusUser,postDataUser};
