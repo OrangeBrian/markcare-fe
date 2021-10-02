@@ -49,4 +49,4 @@ function postDataUser(sendData){
 }
 
 
-export default {getDataUser,getStatusUse,postDataUser};
+export default {getDataUser,getStatusUser,postDataUser};
