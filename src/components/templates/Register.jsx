@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
+import axios from 'axios';
+
 
 const FormItem = Form.Item;
 
@@ -30,6 +32,7 @@ function postDataUser(sendData){
         headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
         }
     })
         .then(  res => {
