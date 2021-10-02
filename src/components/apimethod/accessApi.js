@@ -18,7 +18,6 @@ function getDataUser(usuarioIngresado){
         .then(respuesta=> {
                 if (respuesta.ok) {
                     return respuesta.json();
-                }else{
                 }
         })
             .then(data=>{
@@ -47,4 +46,7 @@ function postDataUser(sendData){
         .catch( error =>{
             window.localStorage.setItem('rtaRegistro','no registrado');
         });
-}   
+}
+
+
+export default {getDataUser,getStatusUse,postDataUser};

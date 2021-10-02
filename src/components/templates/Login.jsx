@@ -3,6 +3,7 @@ import loginImg from '../images/logo.png'
 import Location from './Location';
 import { Form, Icon, Input, Button, message } from "antd";
 const FormItem = Form.Item;
+import getUser from '../apimethod/accessApi';
 
 function getDataUser(usuarioIngresado){
     
@@ -13,7 +14,7 @@ function getDataUser(usuarioIngresado){
         .then(respuesta=> {
                 if (respuesta.ok) {
                     window.localStorage.setItem('rta','registrado');
-                        return respuesta.json();
+                    return respuesta.json();
                 }else{
                     window.localStorage.setItem('rta','no registrado');
                 }
@@ -22,7 +23,6 @@ function getDataUser(usuarioIngresado){
                 window.localStorage.setItem('dataUser',JSON.stringify(data));
             })
 }
-
 
 const Login = () => {
 
@@ -74,9 +74,6 @@ const Login = () => {
             }, 0);
             window.location.href = './location'
         }
-
-        username = null;
-        password = null;
         
     }
 

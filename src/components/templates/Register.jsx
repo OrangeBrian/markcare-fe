@@ -28,7 +28,8 @@ function postDataUser(sendData){
         method:'POST',
         body: sendData,
         headers: {
-            'content-type': 'application/json '
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
         }
     })
         .then(  res => {
@@ -38,9 +39,9 @@ function postDataUser(sendData){
                 window.localStorage.setItem('rtaRegistro','no registrado');    
             }
         })
-        .catch( error =>{
-            window.localStorage.setItem('rtaRegistro','no registrado');
-        });
+        // .catch( error =>{
+        //     window.localStorage.setItem('rtaRegistro','no registrado');
+        // });
 }   
 
 
@@ -72,18 +73,18 @@ const Register = () => {
     }
 
 
-// //  Datos de prueba.
+//     Datos de prueba.
 //     var sendData = {
-//         "username": "arfel",
-//         "name": "Ariel",
-//         "lastName": "Feldman",
-//         "address": "Jonte",
-//         "email": "a@hot.com",
-//         "password": "1234",
-//         "cellphone": 12,
-//         "idLegal": 1341,
-//         "country": "Argentina"
-//       }
+//     "username": "ArFel",
+//     "name": "Ariel",
+//     "lastName": "Feldman",
+//     "address": "Av segurola",
+//     "email": "ariel@hotmail.com",
+//     "password": "1234",
+//     "cellphone": 1123,
+//     "idLegal": 341231,
+//     "country": "Argentina"
+//   }
 
     function validateEmail(correo) {
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -101,6 +102,7 @@ const Register = () => {
     
         window.localStorage.removeItem('rtaRegistro');
         window.localStorage.removeItem('rta');
+        
         getStatusUser(user);
     
         let rta = window.localStorage.getItem('rta');        
@@ -117,13 +119,13 @@ const Register = () => {
         }else if( isNaN(cellphone) ){
                 
                 setTimeout(() => {
-                    message.info('Error en telefono, debe ingresar valores numericos y hasta 15 digitos',2)
+                    message.info('Error en telefono, debe ingresar valores numericos.',2)
                 }, 500);
                 
         }else if ( (isNaN(idlegal)) ){
 
             setTimeout(() => {
-                message.info('Error en el dni, debe ingresar valores numericos y 10 digitos',2)
+                message.info('Error en el dni, debe ingresar valores numericos.',2)
             }, 500);
 
         }else if(validateEmail(email)===false) {
@@ -157,7 +159,7 @@ const Register = () => {
             } catch (error) {
                 console.log(sendData);
                 setTimeout(() => {
-                    message.error('Error.',2) 
+                    message.error('No se logra registrar al usuario',2) 
                  }, 500);                   
             }
 
@@ -171,8 +173,6 @@ const Register = () => {
             document.getElementById('country').value = '';
             document.getElementById('cellphone').value = '';
             document.getElementById('idlegal').value = '';
-
-            setUser(null);
 
         }
 
