@@ -75,20 +75,6 @@ const Register = () => {
             "country": country
     }
 
-
-//     Datos de prueba.
-//     var sendData = {
-//     "username": "ArFel",
-//     "name": "Ariel",
-//     "lastName": "Feldman",
-//     "address": "Av segurola",
-//     "email": "ariel@hotmail.com",
-//     "password": "1234",
-//     "cellphone": 1123,
-//     "idLegal": 341231,
-//     "country": "Argentina"
-//   }
-
     function validateEmail(correo) {
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
         var esValido = expReg.test(correo);
@@ -136,7 +122,7 @@ const Register = () => {
             setTimeout(() => {
                 message.info('Mail incorrecto',2)
             }, 500);
-
+            //Esta validacion borrar porque es consulta contra la base.
         }else if(rta==='registrado'){
 
             setTimeout(() => {
@@ -155,6 +141,7 @@ const Register = () => {
             console.log('vino por aca perro');
 
             try {
+                //Aca vamos a obtener la rta 200 o no luego de enviar los datos al back.
                 postDataUser(sendData); 
                 setTimeout(() => {
                    message.success('Se guarda registro.',2) 

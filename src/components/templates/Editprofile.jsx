@@ -4,6 +4,8 @@ import { Form, Icon, Input, Button, message } from "antd";
 const FormItem = Form.Item;
 
 
+//Armar post para enviar datos por ID.
+
 const Editprofile = () => {
 
     const [name, setName] = useState('');

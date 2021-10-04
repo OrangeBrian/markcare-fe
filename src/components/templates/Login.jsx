@@ -71,9 +71,8 @@ const Login = () => {
             setTimeout((e) => {
                 message.error('Usuario logueado exitosamente.')
             }, 0);
-            window.location.href = './location'
+            window.location.href = './shop'
         }
-        
     }
 
     return (

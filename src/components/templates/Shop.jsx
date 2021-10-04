@@ -21,6 +21,8 @@ import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
 
+
+
 const menu = (
     <Menu>
         <Menu.Item key="0">
@@ -41,7 +43,7 @@ const Shop = () => {
             <div className="navBar2">
                 <div className="row">
                     <div className="col2">
-                        <a href="/location" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
+                        <a href="/shop" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
                     </div>
                     <div className="col2">
                         <div className="nav justify-content-end">
