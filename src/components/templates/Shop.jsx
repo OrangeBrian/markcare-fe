@@ -32,7 +32,7 @@ const menu = (
             <a href="/editprofile">Editar perfil</a>
         </Menu.Item>
         <Menu.Item key="2">
-            <a href="/logout">Cerrar sesion</a>
+            <a href="/">Cerrar sesion</a>
         </Menu.Item>
     </Menu>
 );
