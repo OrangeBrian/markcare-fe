@@ -1,51 +1,72 @@
-function getStatusUser(usuarioIngresado){
-        
-    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
-    fetch(api+usuarioIngresado)
-        .then(respuesta=> {
-                if (respuesta.ok) {
-                    window.localStorage.setItem('rta','registrado');
-                }else{
-                    window.localStorage.setItem('rta','no registrado');
-                }
-        })
+import axios from "axios";
+// El post va a tener que estar en:
+// Register y Editprofile(aca se tiene que enviar por id).
+const postUserApp = async (sendData) =>{
+    try {
+        await axios ({
+            method:'POST',
+            url: 'https://markcare-be.herokuapp.com/api/customer/save',
+            data: sendData
+        }).then(res=> alert(res.status))
+
+    } catch (err) {
+        console.error(err.response.data);
+        alert(err.response.data);
+    }
+}
+const postAppointment = async (sendData) =>{
+    try {
+        await axios ({
+            method:'POST',
+            url: 'https://markcare-be.herokuapp.com/api/appointment/save',
+            data: sendData
+        }).then(res=> alert(res.status))
+
+    } catch (err) {
+        console.error(err.response.data);
+        alert(err.response.data);
+    }
 }
 
-function getDataUser(usuarioIngresado){
-
-    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
-    fetch(api+usuarioIngresado)
-        .then(respuesta=> {
-                if (respuesta.ok) {
-                    return respuesta.json();
-                }
-        })
-            .then(data=>{
-                window.localStorage.setItem('dataUser',JSON.stringify(data));
-            })
+//Get para tomar datos de usuario.
+const getUserApp = async (idUser)=>{
+    try {
+        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/${idUser}`)
+        localStorage.setItem('dataUser',JSON.stringify(apiApp.data));
+    } catch (err) {
+        alert(err)
+    }
+}
+//Get para tomar datos de tiendas.
+const getShops = async ()=>{
+    try {
+        const apiApp = await axios('https://markcare-be.herokuapp.com/api/store/shops')
+        localStorage.setItem('dataShops',JSON.stringify(apiApp.data));
+    } catch (err) {
+        alert(err)
+    }
 }
 
-//Funcion que envia a la api los datos del nuevo usuario.
-function postDataUser(sendData){
-
-    const apiPost = 'https://markcare-be.herokuapp.com/api/customer/save';
-    fetch(apiPost,{
-        method:'POST',
-        body: sendData,
-        headers: {
-            'content-type': 'application/json '
-        }
-    })
-        .then(  res => {
-            if(res.ok){
-                window.localStorage.setItem('rtaRegistro','registrado');
-            }else{
-                window.localStorage.setItem('rtaRegistro','no registrado');    
-            }
-        })
-        .catch( error =>{
-            window.localStorage.setItem('rtaRegistro','no registrado');
-        });
+//Get de sucursales de shop.
+const getBranchOffices = async(storeId) =>{
+    
+    try {
+        const apiApp= await axios(`https://markcare-be.herokuapp.com/api/branch_office/location/${storeId}`)
+        localStorage.setItem('dataBranchOffice',JSON.stringify(apiApp.data));
+    } catch (err) {
+        alert(err)
+    }
 }
 
-export default {getDataUser,getStatusUser,postDataUser};
+//Get de los turnos de un usuario.
+const getMyShifts = async (idUser)=>{
+
+    try {
+        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/appointment/list/${idUser}`)
+        localStorage.setItem('dataMyShifts',JSON.stringify(apiApp.data));
+    } catch (err) {
+        alert(err)
+    }
+}
+
+export default {postUserApp,getUserApp,getShops,getBranchOffices,postAppointment,getMyShifts};

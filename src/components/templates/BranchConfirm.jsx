@@ -67,4 +67,4 @@ const BranchConfirm = () => {
         </div>
     )
 }
-export default BranchConfirm
+export default BranchConfirm;

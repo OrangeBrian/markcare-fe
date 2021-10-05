@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Inicio from './components/templates/Inicio';
+import Index from './components/templates/Index';
 import Login from './components/templates/Login';
 import Register from './components/templates/Register';
 import Shop from './components/templates/Shop';
@@ -30,7 +30,7 @@ function App() {
             <Register />
           </Route>
           <Route path='/' exact>
-            <Inicio />
+            <Index />
           </Route>
           <Route path='/shop'>
             <Shop />

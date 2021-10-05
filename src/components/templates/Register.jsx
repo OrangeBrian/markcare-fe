@@ -3,53 +3,9 @@ import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
 import axios from 'axios';
 
-
 const FormItem = Form.Item;
 
-
-function getStatusUser(usuarioIngresado){
-            
-    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
-    fetch(api+usuarioIngresado)
-    .then(respuesta=> {
-            if (respuesta.ok) {
-                window.localStorage.setItem('rta','registrado');
-            }else{
-                window.localStorage.setItem('rta','no registrado');
-            }
-    })
-}
-
-function postDataUser(sendData){
-
-    console.log(sendData);
-    console.log(JSON.stringify(sendData));
-
-    const apiPost = 'https://markcare-be.herokuapp.com/api/customer/save';
-    fetch(apiPost,{
-        method:'POST',
-        body: sendData,
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        }
-    })
-        .then(  res => {
-            if(res.ok){
-                window.localStorage.setItem('rtaRegistro','registrado');
-            }else{
-                window.localStorage.setItem('rtaRegistro','no registrado');    
-            }
-        })
-        // .catch( error =>{
-        //     window.localStorage.setItem('rtaRegistro','no registrado');
-        // });
-}   
-
-
 const Register = () => {
-
 
     let [user, setUser] = useState('');
     let [name, setName] = useState('');
@@ -62,18 +18,41 @@ const Register = () => {
     let [address, setAddress] = useState('');
     let [country, setCountry] = useState('');
 
-
-    var sendData = {
-            "username": user,
-            "name": name,
-            "lastName": lastname,
-            "address": address,
-            "email": email,
-            "password": password,
-            "cellphone": cellphone,
-            "idLegal": idlegal,
-            "country": country
+    var sendData={
+        "username": user,
+        "name": name,
+        "lastName": lastname,
+        "address": address,
+        "email": email,
+        "password": password,
+        "cellphone": cellphone,
+        "idLegal": idlegal,
+        "country": country
     }
+
+    const postUserApp = async (datos) =>{
+        try {
+            await axios ({
+                method:'POST',
+                url: 'https://markcare-be.herokuapp.com/api/customer/save',
+                data: datos
+            }).then(res=> alert(res.status))
+    
+        } catch (err) {
+            console.error(err.response.data);
+            alert(err.response.data);
+        }
+    }       
+    
+    const getUserApp = async (idUser)=>{
+        try {
+            const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/${idUser}`)
+            console.log(apiApp.data);   
+        } catch (error) {
+            alert(error)
+        }
+    }
+
 
     function validateEmail(correo) {
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -92,7 +71,7 @@ const Register = () => {
         window.localStorage.removeItem('rtaRegistro');
         window.localStorage.removeItem('rta');
         
-        getStatusUser(user);
+        //getStatusUser(user);
     
         let rta = window.localStorage.getItem('rta');        
 
@@ -142,10 +121,10 @@ const Register = () => {
 
             try {
                 //Aca vamos a obtener la rta 200 o no luego de enviar los datos al back.
-                postDataUser(sendData); 
+                postUserApp(sendData); 
                 setTimeout(() => {
                    message.success('Se guarda registro.',2) 
-                }, 500);   
+                }, 500);
             } catch (error) {
                 console.log(sendData);
                 setTimeout(() => {

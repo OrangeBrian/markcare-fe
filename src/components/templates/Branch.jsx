@@ -88,4 +88,4 @@ const Branch = () => {
             </div>
     )
 }
-export default Branch
+export default Branch;

@@ -19,16 +19,16 @@ const Editprofile = () => {
 
 
     //Obtenemos los datos de local storage, luego cambiara a la api.
-    const getUserName = window.localStorage.getItem("user").replace(/"/g, "");
-    const getName = window.localStorage.getItem("name").replace(/"/g, "");
-    const getLastName = window.localStorage.getItem("lastname").replace(/"/g, "");
-    const getPassword = window.localStorage.getItem("password").replace(/"/g, "");
-    const getConfirmpass = window.localStorage.getItem("confirmPass").replace(/"/g, "");
-    const getEmail = window.localStorage.getItem("email").replace(/"/g, "");
-    const getCellPhone = window.localStorage.getItem("cellphone").replace(/"/g, "");
-    const getIdLegal = window.localStorage.getItem("idlegal").replace(/"/g, "");
-    const getAddress = window.localStorage.getItem("address").replace(/"/g, "");
-    const getCountry = window.localStorage.getItem("country").replace(/"/g, "");
+    const getUserName = window.localStorage.getItem("user");
+    const getName = window.localStorage.getItem("name");
+    const getLastName = window.localStorage.getItem("lastname");
+    const getPassword = window.localStorage.getItem("password");
+    const getConfirmpass = window.localStorage.getItem("confirmPass");
+    const getEmail = window.localStorage.getItem("email");
+    const getCellPhone = window.localStorage.getItem("cellphone");
+    const getIdLegal = window.localStorage.getItem("idlegal");
+    const getAddress = window.localStorage.getItem("address");
+    const getCountry = window.localStorage.getItem("country");
 
     //Expresiones regulares para darle validacion a los input.
     const expresiones = {
@@ -196,4 +196,4 @@ const Editprofile = () => {
     )
 }
 
-export default Editprofile
+export default Editprofile;

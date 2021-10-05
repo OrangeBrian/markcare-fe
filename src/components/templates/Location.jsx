@@ -73,4 +73,4 @@ const Location = () => {
         </div>
     )
 }
-export default Location
+export default Location;

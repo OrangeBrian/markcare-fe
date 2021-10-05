@@ -20,8 +20,17 @@ import dia from "../images/diaLogo.png";
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
+import axios from 'axios';
 
-
+//Get para tomar datos de tiendas.
+const getShops = async ()=>{
+    try {
+        const apiApp = await axios('https://markcare-be.herokuapp.com/api/store/shops')
+        localStorage.setItem('dataShops',JSON.stringify(apiApp.data));
+    } catch (err) {
+        alert(err)
+    }
+}
 
 const menu = (
     <Menu>
@@ -38,6 +47,9 @@ const menu = (
 );
 
 const Shop = () => {
+
+    getShops();
+
     return (
         <div>
             <div className="navBar2">
@@ -96,4 +108,4 @@ const Shop = () => {
         </div>
     )
 }
-export default Shop
+export default Shop;

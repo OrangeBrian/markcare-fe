@@ -110,4 +110,4 @@ const Myshifts = () => {
         </div>
     )
 }
-export default Myshifts
+export default Myshifts;

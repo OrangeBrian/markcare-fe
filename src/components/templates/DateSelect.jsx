@@ -75,4 +75,4 @@ const DateSelect = () => {
         </div>
     )
 }
-export default DateSelect
+export default DateSelect;

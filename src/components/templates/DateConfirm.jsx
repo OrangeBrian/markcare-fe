@@ -73,4 +73,4 @@ const DateConfirm = () => {
         </div>
     )
 }
-export default DateConfirm
+export default DateConfirm;
