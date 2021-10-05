@@ -6,7 +6,7 @@ import React from 'react';
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import mapa from "../images/mapa.jpg";
+
 
 /*
     Kit de interfaz de usuario que contiene mas de 2000 
@@ -16,6 +16,7 @@ import mapa from "../images/mapa.jpg";
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
+import Maps from './Maps';
 
 const menu = (
     <Menu>
@@ -52,16 +53,17 @@ const BranchConfirm = () => {
             </div>
             <hr />
             <div className="branchConfirmContainer">
-
                 <h3>Confirma la sucursal seleccionada</h3>
-                <div className="map">
-                    <img src={mapa} alt="map" />
-                    <a href="/dateselect" class="btn" role="button" aria-pressed="true">Confirmar</a>
+                <a href="/dateselect" class="btn" role="button" aria-pressed="true">Confirmar</a>
+                <div className="mapCont">
+                    <Maps />
+                </div>
+                <div className="separadorMap">
                 </div>
             </div>
-                <footer>
-                <FooterComp/>
-                </footer>
+            <footer>
+                <FooterComp />
+            </footer>
         </div>
     )
 }
