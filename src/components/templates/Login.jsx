@@ -1,70 +1,46 @@
 import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
-import Location from './Location';
 import { Form, Icon, Input, Button, message } from "antd";
+import accessApi from '../apimethod/accessApi';
 const FormItem = Form.Item;
 
-function getDataUser(usuarioIngresado){
-    
-    window.localStorage.removeItem('rta');
-
-    const api = 'https://markcare-be.herokuapp.com/api/customer/find/'
-    fetch(api+usuarioIngresado)
-        .then(respuesta=> {
-                if (respuesta.ok) {
-                    window.localStorage.setItem('rta','registrado');
-                    return respuesta.json();
-                }else{
-                    window.localStorage.setItem('rta','no registrado');
-                }
-        })
-            .then(data=>{
-                window.localStorage.setItem('dataUser',JSON.stringify(data));
-            })
-}
 
 const Login = () => {
 
-    let [username, setUsername] = useState('');
+    let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
 
     let loginUser ={
-        username1: username,
-        password1: password
+        emailLogin: email,
+        passwordLogin: password
     };
-
-    const [location, setLocation] = useState(true)
 
     function handleLogin(e) {
 
         e.preventDefault();
 
-        getDataUser(username);
+        accessApi.getUserByMail(email);
 
         window.localStorage.setItem('loguinUser',JSON.stringify(loginUser));
         
-        const dataApiUser = JSON.parse(window.localStorage.getItem('dataUser'));
+        const dataApiUser = JSON.parse(window.localStorage.getItem('dataUserByEmail'));
 
-        setTimeout((e)=>{
-            console.log('esperando');
-        }, 1500);
-
-        if ((dataApiUser.username !== loginUser.username1)) {
+        if ((dataApiUser.email !== loginUser.emailLogin
+            || dataApiUser.email.length===0)) {
 
             setTimeout((e) => {
-                message.error('Usuario no registrado.');
+                message.error('Email no registrado.');
             }, 0);
             
-            document.getElementById('user').value ='';
+            document.getElementById('email').value ='';
             document.getElementById('password').value ='';
 
-        } else if ((dataApiUser.password !== loginUser.password1)){
+        } else if ((dataApiUser.password !== loginUser.passwordLogin)){
 
             setTimeout((e) => {
                 message.error('Contraseña incorrecta');
             }, 0);
 
-            document.getElementById('user').value ='';
             document.getElementById('password').value ='';
 
         } else {
@@ -77,11 +53,9 @@ const Login = () => {
 
     return (
         <div>
-            {
-                location ?
                     <div>
                         <div className="navBar1">
-                            <a href="/" class="btn" role="button" aria-pressed="true">Volver</a>
+                            <a href="/" className="btn" role="button" aria-pressed="true">Volver</a>
                         </div>
                         <hr />
                         <div className={"lContainer"}>
@@ -92,10 +66,10 @@ const Login = () => {
                                     <Form onSubmit={handleLogin} className="login-form">
                                         <FormItem>
                                             <Input
-                                                prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-                                                id="user"
-                                                placeholder="Usuario"
-                                                onChange={({ target }) => setUsername(target.value)}
+                                                prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
+                                                id="email"
+                                                placeholder="Email"
+                                                onChange={({ target }) => setEmail(target.value)}
                                             />
                                         </FormItem>
                                         <FormItem>
@@ -121,8 +95,6 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    : <Location />
-            }
         </div>
     )
 }

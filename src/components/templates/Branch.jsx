@@ -41,9 +41,9 @@ const Branch = () => {
                     <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                     <MenuOutlined />
-                                </a>
+                                </div>
                             </Dropdown>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 1 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btn"  role="button" aria-pressed="true">Seleccionar</a>
                     </div> 
                     <div className="branch">
                             <img src={iconoSucursal}  className="imgBranch" alt="Register Address" style={{ position: "relative"}}  />
@@ -68,7 +68,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 2 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btn"  role="button" aria-pressed="true">Seleccionar</a>
                     </div>
 
                     <div className="branch">
@@ -77,7 +77,7 @@ const Branch = () => {
                             <h4>Nombre de tienda</h4>
                             <p>Campo de texto 3 direccion de tienda mas cercana</p>
                             </div>
-                            <a href="/branchconfirm" className="btnselect" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                            <a href="/branchconfirm" className="btn"  role="button" aria-pressed="true">Seleccionar</a>
                     </div>  
                     
             </div>

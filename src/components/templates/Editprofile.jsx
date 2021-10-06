@@ -1,75 +1,87 @@
 import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
+import accessApi from '../apimethod/accessApi';
 const FormItem = Form.Item;
 
 
-//Armar post para enviar datos por ID.
-
 const Editprofile = () => {
 
-    const [name, setName] = useState('');
-    const [lastname, setLastName] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmpass, setConfirmpass] = useState('');
-    const [email, setEmail] = useState('');
-    const [cellphone, setCellPhone] = useState('');
-    const [address, setAddress] = useState('');
-    const [country, setCountry] = useState('');
+    let [name,setName] = useState('');
+    let [lastname,setLastName] = useState('');
+    let [password,setPassword] = useState('');
+    let [confirmpass,setConfirmpass] = useState('');
+    let [cellphone, setCellPhone] = useState('');
+    let [address,setAddress] = useState('');
+    let [country,setCountry] = useState('');
 
-
-    //Obtenemos los datos de local storage, luego cambiara a la api.
-    const getUserName = window.localStorage.getItem("user");
-    const getName = window.localStorage.getItem("name");
-    const getLastName = window.localStorage.getItem("lastname");
-    const getPassword = window.localStorage.getItem("password");
-    const getConfirmpass = window.localStorage.getItem("confirmPass");
-    const getEmail = window.localStorage.getItem("email");
-    const getCellPhone = window.localStorage.getItem("cellphone");
-    const getIdLegal = window.localStorage.getItem("idlegal");
-    const getAddress = window.localStorage.getItem("address");
-    const getCountry = window.localStorage.getItem("country");
-
-    //Expresiones regulares para darle validacion a los input.
-    const expresiones = {
-        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        password: /^[a-zA-Z0-9\_\-]{4}$/, // 4 a 12 digitos.
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-        dni: /^\d{5,7}$/ // 5 a 7 numeros.
-    };
-
-    // Accion luego de que toca el boton Editar.
+    const dataUserByEmail = JSON.parse(localStorage.getItem('dataUserByEmail'));
+    
     function handleRegister(e) {
 
         e.preventDefault();
+        
+        let dataUserChange={
+            "username": dataUserByEmail.username,
+            "name": name,
+            "lastName": lastname,
+            "address": address,
+            "email": dataUserByEmail.email,
+            "password": password,
+            "cellphone": cellphone,
+            "idLegal": dataUserByEmail.idLegal,
+            "country": country
+        }
 
-        if (!setPassword || !setConfirmpass || !setEmail || !setCellPhone || !setAddress || !setCountry || !setName || !setLastName) {
+        console.log(dataUserChange);
+
+        if (    
+                dataUserByEmail.name===dataUserChange.name &
+                dataUserByEmail.lastName===dataUserChange.lastName &
+                dataUserByEmail.address===dataUserChange.address &
+                dataUserByEmail.password===dataUserChange.password &
+                dataUserByEmail.cellphone===dataUserChange.cellphone &
+                dataUserByEmail.country===dataUserChange.country
+            ){
+
+            setTimeout((e) => {
+                message.info('No se realizo ninguna modificacion.', 2)
+            }, 500);
+
+        }else if(
+                    !setPassword || !setConfirmpass || !setCellPhone || 
+                    !setAddress || !setCountry || !setName || !setLastName
+                ) {
+            
             setTimeout((e) => {
                 message.info('Borro datos que debe modificar, todos los campos no grisados deben estar completos', 2)
             }, 500);
+
         } else if (setPassword !== setConfirmpass) {
+            console.log(setPassword);
+            console.log(setConfirmpass);
             setTimeout((e) => {
                 message.error('La contraseña y su confirmacion son distintas, por favor ingrese la misma.', 2)
             }, 500);
         } else {
-            setTimeout((e) => {
-                message.success('Cambios Realizados', 1)
-            }, 0);
-            /*
-                Aca deberia enviar todos los datos a la BD ya que..
-                Los registros no estan vacios, cumples con sus largos, y tipo de entrada, y a su vez el Usuario no esta en la BD.
-            */
-            window.localStorage.setItem("name", JSON.stringify(setName));
-            window.localStorage.setItem("lastname", JSON.stringify(setLastName));
-            window.localStorage.setItem("email", JSON.stringify(setEmail));
-            window.localStorage.setItem("cellphone", JSON.stringify(setCellPhone));
-            window.localStorage.setItem("password", JSON.stringify(setPassword));
-            window.localStorage.setItem("confirmPass", JSON.stringify(setConfirmpass));
-            window.localStorage.setItem("address", JSON.stringify(setAddress));
-            window.localStorage.setItem("country", JSON.stringify(setCountry));
-            window.location.href = '/shop'
+            
+            console.log(dataUserChange);
+            
+            try {
+                accessApi.postUserApp(dataUserChange);
+
+                setTimeout((e) => {
+                    message.success('Cambios Realizados', 1)
+                }, 500);
+
+                window.location.href = '/shop';
+
+            } catch (error) {
+                setTimeout((e) => {
+                    message.success('No se han podido realizar los cambios.', 1)
+                }, 500);
+            }
+
         }
 
     }
@@ -77,7 +89,7 @@ const Editprofile = () => {
     return (
         <div>
             <div className="navBar1">
-                <a href="/shop" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Volver</a>
+                <a href="/shop" className="btn btn-primary btn-sm" role="button" aria-pressed="true">Volver</a>
             </div>
             <hr />
             <div className={"lContainer"}>
@@ -92,7 +104,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="idcard" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
-                                    value={getUserName}
+                                    value={dataUserByEmail.username}
                                     disabled
                                 />
                             </FormItem>
@@ -100,9 +112,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
-                                    defaultValue={getName}
-                                    //pattern={expresiones.password}
-                                    //maxLength="20"
+                                    defaultValue={dataUserByEmail.name}
                                     onChange={({ target }) => setName(target.value)}
                                 />
                             </FormItem>
@@ -110,9 +120,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
-                                    defaultValue={getLastName}
-                                    //pattern={expresiones.password}
-                                    //maxLength="20"
+                                    defaultValue={dataUserByEmail.lastName}
                                     onChange={({ target }) => setLastName(target.value)}
                                 />
                             </FormItem>
@@ -120,9 +128,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
-                                    defaultValue={getPassword}
-                                    //pattern={expresiones.password}
-                                    //minLength="4"
+                                    defaultValue={dataUserByEmail.password}
                                     onChange={({ target }) => setPassword(target.value)}
                                 />
                             </FormItem>
@@ -130,9 +136,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
-                                    defaultValue={getConfirmpass}
-                                    //minLength="4"
-                                    //pattern={expresiones.password}
+                                    defaultValue={dataUserByEmail.password}
                                     onChange={({ target }) => setConfirmpass(target.value)}
                                 />
                             </FormItem>
@@ -140,34 +144,31 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="Email"
-                                    defaultValue={getEmail}
-                                    onChange={({ target }) => setEmail(target.value)}
+                                    defaultValue={dataUserByEmail.email}
+                                    disabled
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="home" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="address"
-                                    defaultValue={getAddress}
-                                    //pattern={expresiones.usuario}
+                                    defaultValue={dataUserByEmail.address}
                                     onChange={({ target }) => setAddress(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="global" style={{ color: "rgba(0,0,0,.25)" }} />}
-                                    defaultValue={getCountry}
-                                    //pattern={expresiones.usuario}
+                                    defaultValue={dataUserByEmail.country}
                                     onChange={({ target }) => setCountry(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="shake" style={{ color: "rgba(0,0,0,.25)" }} />}
-                                    defaultValue={getCellPhone}
+                                    defaultValue={dataUserByEmail.cellphone}
                                     type="number"
                                     minLength="10"
-                                    //onKeyPress={expresiones.dni}
                                     onChange={({ target }) => setCellPhone(target.value)}
                                 />
                             </FormItem>
@@ -175,7 +176,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="number"
-                                    defaultValue={getIdLegal}
+                                    defaultValue={dataUserByEmail.idLegal}
                                     disabled
                                 />
                             </FormItem>

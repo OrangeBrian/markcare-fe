@@ -1,36 +1,14 @@
-/*
-    Importo toda la libreria React para utilizar todas sus funciones, etc
-*/
 import React from 'react';
-/* 
-    Importamos con el nombre 'loginImg' la imagen que se encuentra 
-    en la carpeta actual (./) del LOGO de Markcare.
-*/
 import carrefour from "../images/carrefourLogo.png";
 import walmart from "../images/wallmartLogo.png";
 import disco from "../images/discoLogo.png";
 import jumbo from "../images/jumboLogo.png";
 import coto from "../images/cotoLogo.png";
 import dia from "../images/diaLogo.png";
-/*
-    Kit de interfaz de usuario que contiene mas de 2000 
-    componentes de interfaz para aplicaciones web y 
-    de escritorioes una libreria del estilo boostrap 
-*/
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
-import axios from 'axios';
-
-//Get para tomar datos de tiendas.
-const getShops = async ()=>{
-    try {
-        const apiApp = await axios('https://markcare-be.herokuapp.com/api/store/shops')
-        localStorage.setItem('dataShops',JSON.stringify(apiApp.data));
-    } catch (err) {
-        alert(err)
-    }
-}
+import accesApi from '../apimethod/accessApi';
 
 const menu = (
     <Menu>
@@ -46,9 +24,12 @@ const menu = (
     </Menu>
 );
 
-const Shop = () => {
 
-    getShops();
+
+const Shop = () => {
+    
+    accesApi.getShops();
+    const shops = JSON.parse(localStorage.getItem('dataShops'));
 
     return (
         <div>
@@ -60,9 +41,9 @@ const Shop = () => {
                     <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                     <MenuOutlined />
-                                </a>
+                                </div>
                             </Dropdown>
                         </div>
                     </div>
@@ -83,9 +64,9 @@ const Shop = () => {
                     </div>
                     <div className="col">
 
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
 
                     </div>
                     <div className="col">
@@ -95,13 +76,26 @@ const Shop = () => {
                     </div>
                     <div className="col">
 
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" class="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
+                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
 
                     </div>
+                    {/* <div className="col">
+                        <div>
+                                {
+                                    shops.map(shop=>{
+                                        return(
+                                                <a href="./branch" className="btn" role="button" aria-pressed="true">{shop.name}</a>
+                                            )
+                                        }
+                                    )
+                                }
+                        </div>   
+                    </div> */}
                 </div>
             </div>
+         
                 <footer>
                    <FooterComp/>
                 </footer>

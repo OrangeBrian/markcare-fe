@@ -7,36 +7,50 @@ const postUserApp = async (sendData) =>{
             method:'POST',
             url: 'https://markcare-be.herokuapp.com/api/customer/save',
             data: sendData
-        }).then(res=> alert(res.status))
+        })
 
     } catch (err) {
-        console.error(err.response.data);
-        alert(err.response.data);
+        console.log(err);
     }
 }
+
+//Post para enviar datos del turno.
 const postAppointment = async (sendData) =>{
     try {
+
         await axios ({
             method:'POST',
             url: 'https://markcare-be.herokuapp.com/api/appointment/save',
             data: sendData
-        }).then(res=> alert(res.status))
+        })
 
     } catch (err) {
-        console.error(err.response.data);
-        alert(err.response.data);
+        console.log(err);
     }
 }
 
 //Get para tomar datos de usuario.
 const getUserApp = async (idUser)=>{
     try {
-        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/${idUser}`)
+        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/username/${idUser}`)
         localStorage.setItem('dataUser',JSON.stringify(apiApp.data));
     } catch (err) {
         alert(err)
     }
 }
+
+//Get para tomar datos de clientes por email
+const getUserByMail = async (email) =>{
+
+    try {
+        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/email/${email}`);
+        localStorage.setItem('dataUserByEmail', JSON.stringify(apiApp.data));
+    } catch (err) {
+        console.log(err);
+    }
+
+}
+
 //Get para tomar datos de tiendas.
 const getShops = async ()=>{
     try {
@@ -69,4 +83,4 @@ const getMyShifts = async (idUser)=>{
     }
 }
 
-export default {postUserApp,getUserApp,getShops,getBranchOffices,postAppointment,getMyShifts};
+export default {postUserApp,getUserApp,getUserByMail,getShops,getBranchOffices,postAppointment,getMyShifts};

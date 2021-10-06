@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
-import axios from 'axios';
-
+import accessApi from '../apimethod/accessApi';
 const FormItem = Form.Item;
 
 const Register = () => {
@@ -30,30 +29,6 @@ const Register = () => {
         "country": country
     }
 
-    const postUserApp = async (datos) =>{
-        try {
-            await axios ({
-                method:'POST',
-                url: 'https://markcare-be.herokuapp.com/api/customer/save',
-                data: datos
-            }).then(res=> alert(res.status))
-    
-        } catch (err) {
-            console.error(err.response.data);
-            alert(err.response.data);
-        }
-    }       
-    
-    const getUserApp = async (idUser)=>{
-        try {
-            const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/${idUser}`)
-            console.log(apiApp.data);   
-        } catch (error) {
-            alert(error)
-        }
-    }
-
-
     function validateEmail(correo) {
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
         var esValido = expReg.test(correo);
@@ -66,15 +41,8 @@ const Register = () => {
 
     function handleRegister(e) {
 
-        e.preventDefault();//Evita que se procese lo que viene por default en el navegador.
+        e.preventDefault();
     
-        window.localStorage.removeItem('rtaRegistro');
-        window.localStorage.removeItem('rta');
-        
-        //getStatusUser(user);
-    
-        let rta = window.localStorage.getItem('rta');        
-
         if (
             user.length === 0 || email.length === 0 || password.length === 0 || confirmpass.length === 0 || 
             cellphone.length === 0 || idlegal.length === 0 || address.length === 0 || country.length === 0 ||
@@ -99,16 +67,9 @@ const Register = () => {
         }else if(validateEmail(email)===false) {
 
             setTimeout(() => {
-                message.info('Mail incorrecto',2)
+                message.info('Mail ingresado incorrecto',2)
             }, 500);
-            //Esta validacion borrar porque es consulta contra la base.
-        }else if(rta==='registrado'){
 
-            setTimeout(() => {
-                message.info('Usuario ya registrado.',2)
-            }, 500);
-        
-            
         }else if(password !== confirmpass){
 
             setTimeout(() => {
@@ -117,31 +78,31 @@ const Register = () => {
 
         }else{
             
-            console.log('vino por aca perro');
-
             try {
-                //Aca vamos a obtener la rta 200 o no luego de enviar los datos al back.
-                postUserApp(sendData); 
-                setTimeout(() => {
-                   message.success('Se guarda registro.',2) 
+                accessApi.postUserApp(sendData);
+                setTimeout((e) => {
+                    message.success('Usuario registrado',2);
                 }, 500);
-            } catch (error) {
-                console.log(sendData);
-                setTimeout(() => {
-                    message.error('No se logra registrar al usuario',2) 
-                 }, 500);                   
-            }
+                
+                window.location.href = '/login';
 
-            document.getElementById('user').value = '';
-            document.getElementById('name').value = '';
-            document.getElementById('lastname').value = '';
-            document.getElementById('password').value = '';
-            document.getElementById('confirmpass').value = '';
-            document.getElementById('mail').value = '';
-            document.getElementById('address').value = '';
-            document.getElementById('country').value = '';
-            document.getElementById('cellphone').value = '';
-            document.getElementById('idlegal').value = '';
+            } catch (error) {
+
+                setTimeout((e) => {
+                    message.error('No se ha podido registrar',2);
+                }, 1000);
+
+                document.getElementById('user').value = '';
+                document.getElementById('name').value = '';
+                document.getElementById('lastname').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('confirmpass').value = '';
+                document.getElementById('mail').value = '';
+                document.getElementById('address').value = '';
+                document.getElementById('country').value = '';
+                document.getElementById('cellphone').value = '';
+                document.getElementById('idlegal').value = '';
+            }
 
         }
 

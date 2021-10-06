@@ -6,7 +6,6 @@ import React from 'react';
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import logoargendev from '../images/logoArgendev.png';
 import locationStoreImg from '../images/locationStore.png';
 import userLocationImg from '../images/userLocation.png';
 /*
@@ -43,9 +42,9 @@ const Location = () => {
                     <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                     <MenuOutlined />
-                                </a>
+                                </div>
                             </Dropdown>
                         </div>
                     </div>

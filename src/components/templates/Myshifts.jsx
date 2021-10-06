@@ -6,11 +6,11 @@ import React from 'react';
     Importamos con el nombre 'loginImg' la imagen que se encuentra 
     en la carpeta actual (./) del LOGO de Markcare.
 */
-import logoargendev from '../images/logoArgendev.png';
-import logfacebook from "../images/fb.png";
-import logtwitter from "../images/tw.png";
-import loginstagram from "../images/ig.png";
-import logyoutube from "../images/yt.png";
+// import logoargendev from '../images/logoArgendev.png';
+// import logfacebook from "../images/fb.png";
+// import logtwitter from "../images/tw.png";
+// import loginstagram from "../images/ig.png";
+// import logyoutube from "../images/yt.png";
 import carrefour from "../images/carrefourLogo.png";
 import walmart from "../images/wallmartLogo.png";
 import disco from "../images/discoLogo.png";
@@ -50,9 +50,9 @@ const Myshifts = () => {
                     <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                     <MenuOutlined />
-                                </a>
+                                </div>
                             </Dropdown>
                         </div>
                     </div>

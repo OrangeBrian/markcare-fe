@@ -1,10 +1,10 @@
 import React, { Component }  from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 const containerStyle = {
   position: "relative",
   width: "70%",
-  height: "60%",
+  height: "40%",
 }
 
 class Mapa extends Component{

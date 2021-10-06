@@ -43,9 +43,9 @@ const BranchConfirm = () => {
                     <div className="col2">
                         <div className="nav justify-content-end">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                     <MenuOutlined />
-                                </a>
+                                </div>
                             </Dropdown>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ const BranchConfirm = () => {
             <hr />
             <div className="branchConfirmContainer">
                 <h3>Confirma la sucursal seleccionada</h3>
-                <a href="/dateselect" class="btn" role="button" aria-pressed="true">Confirmar</a>
+                <a href="/dateselect" className="btn" role="button" aria-pressed="true">Confirmar</a>
                 <div className="mapCont">
                     <Maps />
                 </div>
