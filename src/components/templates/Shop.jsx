@@ -1,14 +1,8 @@
 import React from 'react';
-import carrefour from "../images/carrefourLogo.png";
-import walmart from "../images/wallmartLogo.png";
-import disco from "../images/discoLogo.png";
-import jumbo from "../images/jumboLogo.png";
-import coto from "../images/cotoLogo.png";
-import dia from "../images/diaLogo.png";
 import { Menu, Dropdown } from 'antd';
 import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
-import accesApi from '../apimethod/accessApi';
+import accessApi from '../apimethod/accessApi';
 
 const menu = (
     <Menu>
@@ -24,12 +18,17 @@ const menu = (
     </Menu>
 );
 
-
-
 const Shop = () => {
     
-    accesApi.getShops();
+    accessApi.getShops();
     const shops = JSON.parse(localStorage.getItem('dataShops'));
+
+    function clickShop(e){
+        e.preventDefault();
+        console.log(e.target.value);
+        localStorage.setItem('shopSelected',e.target.value);
+        window.location.href= '/branch';
+    }
 
     return (
         <div>
@@ -58,44 +57,25 @@ const Shop = () => {
                 </div>
                 <div className="shopcol">
                     <div className="col">
-                        <img src={carrefour} className="imgStore" alt="Register Address" style={{ position: "relative" }} />
-                        <img src={walmart} className="imgStore" alt="Current Location" style={{ position: "relative" }} />
-                        <img src={disco} className="imgStore" alt="Current Location" style={{ position: "relative" }} />
+                        <div className="row">
+                            {shops.map(shop=>{
+                                return(
+                                        <input 
+                                            type="image" 
+                                            src={shop.imageUrl}
+                                            className="imgStore"
+                                            alt="Register Address" 
+                                            style={{ position: "relative"}}
+                                            value={shop.id}
+                                            onClick={clickShop}
+                                        />                                      
+                                    )}
+                                )
+                            }
+                        </div>
                     </div>
-                    <div className="col">
-
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-
-                    </div>
-                    <div className="col">
-                        <img src={jumbo} className="imgStore" alt="Register Address" style={{ position: "relative" }} />
-                        <img src={coto} className="imgStore" alt="Current Location" style={{ position: "relative" }} />
-                        <img src={dia} className="imgStore" alt="Current Location" style={{ position: "relative" }} />
-                    </div>
-                    <div className="col">
-
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-                        <a href="./branch" className="btn" role="button" aria-pressed="true">Seleccionar</a>
-
-                    </div>
-                    {/* <div className="col">
-                        <div>
-                                {
-                                    shops.map(shop=>{
-                                        return(
-                                                <a href="./branch" className="btn" role="button" aria-pressed="true">{shop.name}</a>
-                                            )
-                                        }
-                                    )
-                                }
-                        </div>   
-                    </div> */}
                 </div>
             </div>
-         
                 <footer>
                    <FooterComp/>
                 </footer>

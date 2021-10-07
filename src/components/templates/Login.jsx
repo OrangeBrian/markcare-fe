@@ -22,33 +22,37 @@ const Login = () => {
         accessApi.getUserByMail(email);
 
         window.localStorage.setItem('loguinUser',JSON.stringify(loginUser));
-        
-        const dataApiUser = JSON.parse(window.localStorage.getItem('dataUserByEmail'));
+        let dataApiUser = JSON.parse(window.localStorage.getItem('dataUserByEmail'));
 
-        if ((dataApiUser.email !== loginUser.emailLogin
-            || dataApiUser.email.length===0)) {
+        setTimeout((e) => {
 
-            setTimeout((e) => {
-                message.error('Email no registrado.');
-            }, 0);
-            
-            document.getElementById('email').value ='';
-            document.getElementById('password').value ='';
+            if (  loginUser.emailLogin.length===0) {
+    
+                setTimeout((e) => {
+                    message.error('Email vacio',1);
+                }, 500);
+                
+                document.getElementById('email').value ='';
+                document.getElementById('password').value ='';
+    
+            } else if ( loginUser.passwordLogin.length===0 ||dataApiUser.password !== loginUser.passwordLogin){
+    
+                setTimeout((e) => {
+                    message.error('Contraseña incorrecta',1);
+                }, 500);
+    
+                document.getElementById('email').value ='';
+                document.getElementById('password').value ='';
+    
+            } else {
+                setTimeout((e) => {
+                    message.error('Usuario logueado exitosamente.',1)
+                }, 500);
+                window.location.href = './shop'
+            }            
 
-        } else if ((dataApiUser.password !== loginUser.passwordLogin)){
+        }, 2000);
 
-            setTimeout((e) => {
-                message.error('Contraseña incorrecta');
-            }, 0);
-
-            document.getElementById('password').value ='';
-
-        } else {
-            setTimeout((e) => {
-                message.error('Usuario logueado exitosamente.')
-            }, 0);
-            window.location.href = './shop'
-        }
     }
 
     return (

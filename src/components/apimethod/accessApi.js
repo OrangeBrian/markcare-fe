@@ -10,7 +10,7 @@ const postUserApp = async (sendData) =>{
         })
 
     } catch (err) {
-        console.log(err);
+        
     }
 }
 
@@ -25,7 +25,7 @@ const postAppointment = async (sendData) =>{
         })
 
     } catch (err) {
-        console.log(err);
+        
     }
 }
 
@@ -35,18 +35,18 @@ const getUserApp = async (idUser)=>{
         const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/username/${idUser}`)
         localStorage.setItem('dataUser',JSON.stringify(apiApp.data));
     } catch (err) {
-        alert(err)
+        
     }
 }
 
 //Get para tomar datos de clientes por email
-const getUserByMail = async (email) =>{
+const getUserByMail =  async (email) =>{
 
     try {
-        const apiApp = await axios(`https://markcare-be.herokuapp.com/api/customer/find/email/${email}`);
+        const apiApp =  await axios(`https://markcare-be.herokuapp.com/api/customer/find/email/${email}`);
         localStorage.setItem('dataUserByEmail', JSON.stringify(apiApp.data));
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
     }
 
 }

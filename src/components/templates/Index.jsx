@@ -17,6 +17,8 @@ import accesoLogo from "../images/accesoLogo.png";
 import FooterComp from './FooterComp';
 
 const Inicio = () => {
+
+    localStorage.clear();
     return (
         <div>
             <div className="navIndex">
