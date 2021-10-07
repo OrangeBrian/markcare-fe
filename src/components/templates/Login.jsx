@@ -34,7 +34,13 @@ const Login = () => {
                 
                 document.getElementById('email').value ='';
                 document.getElementById('password').value ='';
-    
+                
+                console.log(loginUser.passwordLogin.length);
+                console.log(dataApiUser.password);
+                console.log(loginUser.passwordLogin);
+                console.log(loginUser.passwordLogin.length===0);
+                console.log(dataApiUser.password !== loginUser.passwordLogin);
+
             } else if ( loginUser.passwordLogin.length===0 ||dataApiUser.password !== loginUser.passwordLogin){
     
                 setTimeout((e) => {
@@ -46,7 +52,7 @@ const Login = () => {
     
             } else {
                 setTimeout((e) => {
-                    message.error('Usuario logueado exitosamente.',1)
+                    message.success('Usuario logueado exitosamente.',1)
                 }, 500);
                 window.location.href = './shop'
             }            
