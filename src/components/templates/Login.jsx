@@ -57,7 +57,7 @@ const Login = () => {
                 window.location.href = './shop'
             }            
 
-        }, 2000);
+        }, 5000);
 
     }
 

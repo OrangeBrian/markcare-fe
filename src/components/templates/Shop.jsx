@@ -25,7 +25,6 @@ const Shop = () => {
 
     function clickShop(e){
         e.preventDefault();
-        console.log(e.target.value);
         localStorage.setItem('shopSelected',e.target.value);
         window.location.href= '/branch';
     }
