@@ -1,12 +1,10 @@
 import React from 'react';
 import FooterComp from './FooterComp';
-import accessApi from '../apimethod/accessApi';
 import HeaderComp from './HeaderComp';
 
 
 const Shop = () => {
     
-    accessApi.getShops();
     const shops = JSON.parse(localStorage.getItem('dataShops'));
 
     function clickShop(e){
