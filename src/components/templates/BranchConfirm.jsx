@@ -1,42 +1,14 @@
 import React from 'react';
-import { Menu, Dropdown } from 'antd';
-import { MenuOutlined, LeftOutlined } from '@ant-design/icons';
 import FooterComp from './FooterComp';
 import Maps from './Maps';
+import HeaderComp from './HeaderComp';
 
-const menu = (
-    <Menu>
-        <Menu.Item key="0">
-            <a href="/myshifts">Mis turnos</a>
-        </Menu.Item>
-        <Menu.Item key="1">
-            <a href="/editprofile">Editar perfil</a>
-        </Menu.Item>
-        <Menu.Item key="2">
-            <a href="/">Cerrar sesion</a>
-        </Menu.Item>
-    </Menu>
-);
+
 
 const BranchConfirm = () => {
     return (
         <div>
-            <div className="navBar2">
-                <div className="row">
-                    <div className="col2">
-                        <a href="/branch" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
-                    </div>
-                    <div className="col2">
-                        <div className="nav justify-content-end">
-                            <Dropdown overlay={menu} trigger={['click']}>
-                                <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                    <MenuOutlined />
-                                </div>
-                            </Dropdown>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <HeaderComp />
             <hr />
             <div className="branchConfirmContainer">
                 <h3>Confirma la sucursal seleccionada</h3>

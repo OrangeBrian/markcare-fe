@@ -336,21 +336,21 @@ hr {
   padding: 0%;
 }
 
+/*navbar general section*/
+
 .navBar2 {
-  margin-bottom: 1%;
+  padding-bottom: 1%;
+  display: flex;
 }
-
-.navBar2 .col2 {
-  width: 50%;
-}
-
 .navBar2 a {
-  text-align: center;
   color: #0d4d90;
-  background: #f6f6f600;
-  border: 0;
-  border-radius: 5px;
+  font-size:20pt;
+  padding-right: 0.5%;
 }
+.navBar2 .back{
+  width:100%;
+  font-size:20pt;
+ }
 
 /*branch*/
 
