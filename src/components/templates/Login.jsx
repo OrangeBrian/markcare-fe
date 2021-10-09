@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
 import accessApi from '../apimethod/accessApi';
@@ -6,55 +6,63 @@ const FormItem = Form.Item;
 
 const Login = () => {
 
-    let [email, setEmail] = useState('');
-    let [password, setPassword] = useState('');
-    
     accessApi.getShops();
-    
-    let loginUser ={
-        emailLogin: email,
-        passwordLogin: password
-    };
 
     function handleLogin(e) {
 
         e.preventDefault();
 
-        accessApi.getUserByMail(email)
+        let loginUser ={
+            emailLogin: document.getElementById('email').value,
+            passwordLogin: document.getElementById('password').value
+        };
+
+        accessApi.getUserByMail(loginUser.emailLogin)
             .then(result =>{
-                window.localStorage.setItem('loguinUser',JSON.stringify(loginUser));
+
                 const dataApiUser = JSON.parse(window.localStorage.getItem('dataUserByEmail'));
                 result = dataApiUser;
                 return result
             })
             .then(dataApiUser=>{
 
-                    if (  dataApiUser=== null) {
+                    if ( loginUser.emailLogin.length===0 ) {
             
+                        setTimeout((e) => {
+                            message.error('Email vacio, por favor ingrese el email para el acceso',1);
+                        }, 100);
+                        
+                        document.getElementById('email').value ='';
+                        document.getElementById('email').focus()                        
+            
+                    } else if(dataApiUser=== null){
+
                         setTimeout((e) => {
                             message.error('Usuario no registrado',1);
                         }, 100);
                         
                         document.getElementById('email').value ='';
                         document.getElementById('password').value ='';
-                    
-                    } else if(loginUser.emailLogin.length===0 || loginUser.passwordLogin.length===0){
+                        document.getElementById('email').focus()                        
+
+                    } else if(loginUser.passwordLogin.length===0){
 
                         setTimeout((e) => {
-                            message.error('Email vacio',1);
+                            message.error('Contrasena vacia',1);
                         }, 100);
                         
-                        document.getElementById('email').value ='';
                         document.getElementById('password').value ='';
+                        document.getElementById('password').focus()
                         
                     
-                    } else if ( loginUser.passwordLogin.length===0 ||dataApiUser['password'] !== loginUser.passwordLogin){
+                    } else if ( dataApiUser['password'] !== loginUser.passwordLogin){
             
                         setTimeout((e) => {
                             message.error('Contraseña incorrecta',1);
                         }, 100);
             
                         document.getElementById('password').value ='';
+                        document.getElementById('password').focus()
             
                     } else {
                         setTimeout((e) => {
@@ -83,7 +91,6 @@ const Login = () => {
                                         prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
                                         id="email"
                                         placeholder="Email"
-                                        onChange={({ target }) => setEmail(target.value)}
                                     />
                                 </FormItem>
                                 <FormItem>
@@ -92,7 +99,6 @@ const Login = () => {
                                         type="password"
                                         id="password"
                                         placeholder="Contraseña"
-                                        onChange={({ target }) => setPassword(target.value)}
                                     />
                                 </FormItem>
                                 <FormItem>
