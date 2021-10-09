@@ -4,6 +4,11 @@ import Maps from './Maps';
 import HeaderComp from './HeaderComp';
 
 const BranchConfirm = () => {
+
+    const latitude = localStorage.getItem('latitude');
+    const longitude =localStorage.getItem('latitude');
+
+
     return (
         <div>
             <HeaderComp a="/branch"/>
