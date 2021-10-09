@@ -2,7 +2,6 @@ import React from 'react';
 import FooterComp from './FooterComp';
 import HeaderComp from './HeaderComp';
 
-
 const Shop = () => {
     
     const shops = JSON.parse(localStorage.getItem('dataShops'));
@@ -15,7 +14,7 @@ const Shop = () => {
 
     return (
         <div>
-        <HeaderComp />
+        <HeaderComp a="/shop"/>
             <hr />
             <div className="shopContainer">
                 <div className="coltext">
@@ -27,8 +26,10 @@ const Shop = () => {
                     <div className="col">
                         <div className="row">
                             {shops.map(shop=>{
+                                
                                 return(
                                         <input 
+                                            key={shop.id}
                                             type="image" 
                                             src={shop.imageUrl}
                                             className="imgStore"

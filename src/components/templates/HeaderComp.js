@@ -17,11 +17,12 @@ const menu = (
     </Menu>
 );
 
-function HeaderComp(_) {
+function HeaderComp(a) {
+
     return (
     <div className="navBar2" >
         <div className="back">
-            <a href="/" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
+            <a href={a.a} role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
         </div>
         <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>

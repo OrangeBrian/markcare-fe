@@ -14,7 +14,7 @@ const Branch = () => {
 
     return (
         <div>
-            <HeaderComp />
+            <HeaderComp a="/shop"/>
             <hr />
             <div className="BranchContainer">
                 <div className="txtlocation">

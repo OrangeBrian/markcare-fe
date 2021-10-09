@@ -3,12 +3,10 @@ import FooterComp from './FooterComp';
 import Maps from './Maps';
 import HeaderComp from './HeaderComp';
 
-
-
 const BranchConfirm = () => {
     return (
         <div>
-            <HeaderComp />
+            <HeaderComp a="/branch"/>
             <hr />
             <div className="branchConfirmContainer">
                 <h3>Confirma la sucursal seleccionada</h3>
