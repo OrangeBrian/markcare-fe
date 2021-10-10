@@ -23,11 +23,9 @@ const Shop = () => {
                         <h3>Selecciona la tienda que desees</h3>
                     </div>
                 </div>
-                <div className="shopcol">
                     <div className="col">
                         <div className="row">
-                            {shops.map(shop=>{
-                                
+                            {shops.map(shop=>{          
                                 return(
                                         <input 
                                             key={shop.id}
@@ -42,7 +40,6 @@ const Shop = () => {
                                     )}
                                 )
                             }
-                        </div>
                     </div>
                 </div>
             </div>

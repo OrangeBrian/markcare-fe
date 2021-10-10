@@ -276,6 +276,7 @@ hr {
 .shopContainer {
   background-color: #f6f6f6;
   display: grid;
+  padding-bottom: 33%;
 }
 
 .shopContainer .coltext {
@@ -287,24 +288,15 @@ hr {
   width: auto;
 }
 
-.shopContainer .col {
-  padding: 0%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 5%;
-}
 .shopContainer .row{
   margin-right: 0%;
   margin-left: 0%;
   justify-content: space-evenly;
 }
-.shopContainer .shopcol {
-  margin-bottom: 33%;
-}
+
 
 .imgStore {
-  width: 25%;
+  width: 22%;
   margin-top: 5%;
   margin-bottom: 10%;
   margin-right: 3%;
