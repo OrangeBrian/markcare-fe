@@ -7,6 +7,9 @@ const containerStyle = {
   height: "40%",
 }
 
+var latitud = localStorage.getItem("latitude");
+var longitud = localStorage.getItem("longitude");
+
 class Mapa extends Component{
     render (){
     return (
@@ -15,8 +18,8 @@ class Mapa extends Component{
           google={this.props.google}
           style={containerStyle}
           initialCenter={{
-            lat: -34.6197004,
-            lng: -58.4993085,
+            lat: latitud,
+            lng: longitud,
           }}
           zoom={15}
           onClick={this.onMapClicked}
