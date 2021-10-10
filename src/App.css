@@ -358,11 +358,16 @@ hr {
   justify-items: center;
   background-color: #f6f6f6;
   text-align: left;
+  padding-bottom: 25%;
 }
-
-.imgBranch {
-  width: 20%;
-  margin-top: 1%;
+.BranchContainer .row{
+  margin:0%;
+  align-items:flex-start;
+  text-align: center;
+}
+.BranchContainer img {
+  width: 50%;
+  margin-top: 10%;
   margin-bottom: 5%;
 }
 
@@ -370,24 +375,23 @@ hr {
   margin-top: 20%;
   margin-bottom: 25%;
 }
-
-.BranchContainer p {
-  margin-top: 20px;
-  margin-bottom: 5px;
-  font-weight: bolder;
+.BranchContainer .row{
+  width: 100%;
 }
-
-.branch a {
+.BranchContainer  .row font {
+ font-size: 14px;
+}
+.BranchContainer  .row button {
+  align-items: baseline;
+ }
+ 
+.BranchContainer button {
   text-align: center;
   color: #fff;
   background: #0d4d90;
   border: 0;
   border-radius: 5px;
   margin-top: 10%;
-  margin-bottom: 10%;
-  margin-left: 25%;
-  width: 50%;
-  height: 35px;
 }
 
 /*branchconfirm*/
