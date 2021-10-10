@@ -78,7 +78,7 @@ const Login = () => {
                         setTimeout((e) => {
                             message.success('Usuario logueado exitosamente.',1)
                         }, 100);
-                        //window.location.href = './shop'
+                        window.location.href = './shop'
                     }
             })
     }
