@@ -2,6 +2,22 @@ import React from 'react';
 import FooterComp from './FooterComp';
 import HeaderComp from './HeaderComp';
 
+var today = new Date();
+var dd = today.getUTCDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+  dd = '0' + dd;
+}
+
+if (mm < 10) {
+  mm = '0' + mm;
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+
+
 const DateSelect = () => {
 
     function handleDateSelect(e){
@@ -13,7 +29,11 @@ const DateSelect = () => {
         
         const dateAppointment = dateSelect +' '+ hourSelect + ':00';
 
-        localStorage.setItem('dateAppointment',dateAppointment)
+        localStorage.setItem('datetimeAppointment',dateAppointment);
+        localStorage.setItem('dateAppointment',dateSelect);
+        localStorage.setItem('hourAppointment',hourSelect);
+        
+        window.location.href='/dateconfirm'
 
     }
 
@@ -33,7 +53,7 @@ const DateSelect = () => {
                         <input 
                             type="date" 
                             id="dateSelect" 
-                            min="2021-09-01" 
+                            min={today} 
                             max="2021-12-31" 
                             step="1"
                         />

@@ -4,6 +4,10 @@ import FooterComp from './FooterComp';
 import HeaderComp from './HeaderComp';
 
 const DateConfirm = () => {
+
+    const dateAppointment = localStorage.getItem('dateAppointment');
+    const hourAppointment = localStorage.getItem('hourAppointment');
+
     return (
         <div>
            <HeaderComp />
@@ -15,12 +19,12 @@ const DateConfirm = () => {
                 </div>  
                 <div className="txtDateConfirm">
                     <h6>Turno reservado para:</h6>
-                    <h6 id="dia">campo para dia:</h6>
-                    <h6 id="hora">campo para hora:</h6>
+                    <h6 id="dat">{dateAppointment}</h6>
+                    <h6 id="hour">{hourAppointment}</h6>
                 </div>
                 <div className="buttonDateConfirm">
                 <a href="/shop" class="btn" role="button" aria-pressed="true">Nuevo turno</a>
-                <a href="/shop" class="btn" role="button" aria-pressed="true">Salir</a>
+                <a href="/" class="btn" role="button" aria-pressed="true">Salir</a>
                 </div>
             </div>
                 <footer>
