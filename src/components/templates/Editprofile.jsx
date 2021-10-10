@@ -7,14 +7,6 @@ const FormItem = Form.Item;
 
 const Editprofile = () => {
 
-    let [name,setName] = useState('');
-    let [lastname,setLastName] = useState('');
-    let [password,setPassword] = useState('');
-    let [confirmpass,setConfirmpass] = useState('');
-    let [cellphone, setCellPhone] = useState('');
-    let [address,setAddress] = useState('');
-    let [country,setCountry] = useState('');
-
     const dataUserByEmail = JSON.parse(localStorage.getItem('dataUserByEmail'));
     
     function handleRegister(e) {
@@ -23,25 +15,27 @@ const Editprofile = () => {
         
         let dataUserChange={
             "username": dataUserByEmail.username,
-            "name": name,
-            "lastName": lastname,
-            "address": address,
+            "name": document.getElementById("name").value,
+            "lastName": document.getElementById("lastName").value,
+            "address": document.getElementById("address").value,
             "email": dataUserByEmail.email,
-            "password": password,
-            "cellphone": cellphone,
+            "password": document.getElementById("password").value,
+            "cellphone": document.getElementById("cellphone").value,
             "idLegal": dataUserByEmail.idLegal,
-            "country": country
+            "country": document.getElementById("country").value
         }
+
+        let confirmPass = document.getElementById("confirmPassword").value;
 
         console.log(dataUserChange);
 
         if (    
-                dataUserByEmail.name===dataUserChange.name &
-                dataUserByEmail.lastName===dataUserChange.lastName &
-                dataUserByEmail.address===dataUserChange.address &
-                dataUserByEmail.password===dataUserChange.password &
-                dataUserByEmail.cellphone===dataUserChange.cellphone &
-                dataUserByEmail.country===dataUserChange.country
+                dataUserByEmail.name === dataUserChange.name &
+                dataUserByEmail.lastName === dataUserChange.lastName &
+                dataUserByEmail.address === dataUserChange.address &
+                dataUserByEmail.password === dataUserChange.password &
+                dataUserByEmail.cellphone === dataUserChange.cellphone &
+                dataUserByEmail.country === dataUserChange.country
             ){
 
             setTimeout((e) => {
@@ -49,17 +43,23 @@ const Editprofile = () => {
             }, 500);
 
         }else if(
-                    !setPassword || !setConfirmpass || !setCellPhone || 
-                    !setAddress || !setCountry || !setName || !setLastName
+                    dataUserChange.name.length ===0 || 
+                    dataUserChange.lastName.length ===0 || 
+                    dataUserChange.cellphone.length ===0 || 
+                    dataUserChange.address.length ===0 || 
+                    dataUserChange.country.length ===0 || 
+                    dataUserChange.address.length ===0 ||
+                    dataUserChange.password.length ===0 || 
+                    dataUserChange.idLegal.length ===0 || 
+                    dataUserChange.email.length ===0
                 ) {
             
             setTimeout((e) => {
-                message.info('Borro datos que debe modificar, todos los campos no grisados deben estar completos', 2)
+                message.info('Debe tener todos los campos completos', 2)
             }, 500);
 
-        } else if (setPassword !== setConfirmpass) {
-            console.log(setPassword);
-            console.log(setConfirmpass);
+        } else if ( dataUserChange.password !== confirmPass ) {
+
             setTimeout((e) => {
                 message.error('La contraseña y su confirmacion son distintas, por favor ingrese la misma.', 2)
             }, 500);
@@ -68,13 +68,17 @@ const Editprofile = () => {
             console.log(dataUserChange);
             
             try {
+
                 accessApi.postUserApp(dataUserChange);
 
                 setTimeout((e) => {
                     message.success('Cambios Realizados', 1)
-                }, 500);
+                }, 100);
+                
+                setTimeout((e) => {
+                    //window.location.href = '/shop';                    
+                }, 1000);
 
-                window.location.href = '/shop';
 
             } catch (error) {
                 setTimeout((e) => {
@@ -104,6 +108,7 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="idcard" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
+                                    id="username"
                                     value={dataUserByEmail.username}
                                     disabled
                                 />
@@ -112,32 +117,32 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
+                                    id="name"
                                     defaultValue={dataUserByEmail.name}
-                                    onChange={({ target }) => setName(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="text"
+                                    id="lastName"
                                     defaultValue={dataUserByEmail.lastName}
-                                    onChange={({ target }) => setLastName(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
+                                    id="password"
                                     defaultValue={dataUserByEmail.password}
-                                    onChange={({ target }) => setPassword(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="password"
+                                    id="confirmPassword"
                                     defaultValue={dataUserByEmail.password}
-                                    onChange={({ target }) => setConfirmpass(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
@@ -152,15 +157,15 @@ const Editprofile = () => {
                                 <Input
                                     prefix={<Icon type="home" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     type="address"
+                                    id="address"
                                     defaultValue={dataUserByEmail.address}
-                                    onChange={({ target }) => setAddress(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
                                 <Input
                                     prefix={<Icon type="global" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     defaultValue={dataUserByEmail.country}
-                                    onChange={({ target }) => setCountry(target.value)}
+                                    id="country"
                                 />
                             </FormItem>
                             <FormItem>
@@ -168,8 +173,8 @@ const Editprofile = () => {
                                     prefix={<Icon type="shake" style={{ color: "rgba(0,0,0,.25)" }} />}
                                     defaultValue={dataUserByEmail.cellphone}
                                     type="number"
+                                    id="cellphone"
                                     minLength="10"
-                                    onChange={({ target }) => setCellPhone(target.value)}
                                 />
                             </FormItem>
                             <FormItem>
