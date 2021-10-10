@@ -17,6 +17,9 @@ const Login = () => {
             passwordLogin: document.getElementById('password').value
         };
 
+        console.log(loginUser.emailLogin);
+        console.log(loginUser.passwordLogin);
+
         accessApi.getUserByMail(loginUser.emailLogin)
             .then(result =>{
 
@@ -48,13 +51,16 @@ const Login = () => {
                     } else if(loginUser.passwordLogin.length===0){
 
                         setTimeout((e) => {
-                            message.error('Contrasena vacia',1);
+                            message.error('Contraseña vacia',1);
                         }, 100);
                         
                         document.getElementById('password').value ='';
+                        localStorage.removeItem('dataUserByEmail');
+                        console.log(dataApiUser);
+                        dataApiUser=null;
+                        console.log(dataApiUser);                        
                         document.getElementById('password').focus()
                         
-                    
                     } else if ( dataApiUser['password'] !== loginUser.passwordLogin){
             
                         setTimeout((e) => {
@@ -62,13 +68,17 @@ const Login = () => {
                         }, 100);
             
                         document.getElementById('password').value ='';
-                        document.getElementById('password').focus()
+                        localStorage.removeItem('dataUserByEmail');
+                        console.log(dataApiUser);
+                        dataApiUser=null;
+                        console.log(dataApiUser);
+                        document.getElementById('password').focus();
             
                     } else {
                         setTimeout((e) => {
                             message.success('Usuario logueado exitosamente.',1)
                         }, 100);
-                        window.location.href = './shop'
+                        //window.location.href = './shop'
                     }
             })
     }

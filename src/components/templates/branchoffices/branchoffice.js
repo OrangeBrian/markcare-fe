@@ -5,11 +5,11 @@ const Branchoffice = (props) => {
     function clickBranch(e){
         
         e.preventDefault();
+
         window.localStorage.setItem('dataBranchId',props.id);
         window.localStorage.setItem('latitude',props.latitude);
         window.localStorage.setItem('longitude',props.longitude);
         window.location.href = '/branchconfirm';
-
     }
 
     return (

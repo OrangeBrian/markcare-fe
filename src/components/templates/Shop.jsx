@@ -9,7 +9,8 @@ const Shop = () => {
     function clickShop(e){
         e.preventDefault();
         localStorage.setItem('shopSelected',e.target.value);
-        window.location.href= '/branch';
+        window.location.href= '/branch';    
+        
     }
 
     return (

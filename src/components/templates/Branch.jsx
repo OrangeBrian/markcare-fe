@@ -8,9 +8,9 @@ const Branch = () => {
 
     const shopSelect = localStorage.getItem('shopSelected');
     
-    accessApi.getBranchOffices(shopSelect);
-    const branchOffices = JSON.parse(localStorage.getItem('dataBranchOffice'));
-
+    accessApi.getBranchOffices(shopSelect)
+    const branchOffices = JSON.parse(localStorage.getItem('dataBranchOffice'))    
+   
     return (
         <div>
             <HeaderComp a="/shop"/>
