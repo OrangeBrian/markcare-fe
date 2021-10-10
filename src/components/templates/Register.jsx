@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
 import accessApi from '../apimethod/accessApi';
-import { setTwoToneColor } from 'antd/lib/icon/twoTonePrimaryColor';
 const FormItem = Form.Item;
 
 const Register = () => {
@@ -83,7 +82,7 @@ const Register = () => {
                     message.info('Contraseña y confirmacion de contraseña distintas, deben ser iguales.',2)
                 }, 200);
     
-            }else if(statusCode=='error'){
+            }else if(statusCode === 'error'){
     
                 setTimeout((e) => {
                     message.error('Usuario ya registrado',2);

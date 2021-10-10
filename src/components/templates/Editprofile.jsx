@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
 import accessApi from '../apimethod/accessApi';
@@ -14,20 +14,19 @@ const Editprofile = () => {
         e.preventDefault();
         
         let dataUserChange={
+            "id": dataUserByEmail.id,
             "username": dataUserByEmail.username,
             "name": document.getElementById("name").value,
             "lastName": document.getElementById("lastName").value,
             "address": document.getElementById("address").value,
-            "email": dataUserByEmail.email,
+            "email":  dataUserByEmail.email,
             "password": document.getElementById("password").value,
-            "cellphone": document.getElementById("cellphone").value,
-            "idLegal": dataUserByEmail.idLegal,
+            "cellphone": parseInt(document.getElementById("cellphone").value),
+            "idLegal": parseInt(dataUserByEmail.idLegal),
             "country": document.getElementById("country").value
         }
 
         let confirmPass = document.getElementById("confirmPassword").value;
-
-        console.log(dataUserChange);
 
         if (    
                 dataUserByEmail.name === dataUserChange.name &
@@ -63,16 +62,18 @@ const Editprofile = () => {
             setTimeout((e) => {
                 message.error('La contraseña y su confirmacion son distintas, por favor ingrese la misma.', 2)
             }, 500);
+            
         } else {
             
-            console.log(dataUserChange);
             
             try {
 
                 accessApi.postUserApp(dataUserChange);
 
+                console.log(dataUserChange);
+
                 setTimeout((e) => {
-                    message.success('Cambios Realizados', 1)
+                    message.success('Cambios Realizados', 2)
                 }, 100);
                 
                 setTimeout((e) => {
@@ -81,9 +82,11 @@ const Editprofile = () => {
 
 
             } catch (error) {
+
                 setTimeout((e) => {
                     message.success('No se han podido realizar los cambios.', 1)
                 }, 500);
+
             }
 
         }
