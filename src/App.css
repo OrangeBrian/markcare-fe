@@ -294,16 +294,21 @@ hr {
   align-items: center;
   margin-top: 5%;
 }
-
+.shopContainer .row{
+  margin-right: 0%;
+  margin-left: 0%;
+  justify-content: space-evenly;
+}
 .shopContainer .shopcol {
-  margin-bottom: 5%;
+  margin-bottom: 33%;
 }
 
 .imgStore {
-  width: 13%;
-  margin-top: 1%;
-  margin-bottom: 5%;
+  width: 25%;
+  margin-top: 5%;
+  margin-bottom: 10%;
   margin-right: 3%;
+  margin-left: 3%;
 }
 
 .shopContainer a {
@@ -341,6 +346,7 @@ hr {
 .navBar2 {
   padding-bottom: 1%;
   display: flex;
+  color: #0d4d90;
 }
 .navBar2 a {
   color: #0d4d90;
