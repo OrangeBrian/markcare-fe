@@ -3,7 +3,7 @@ import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 const containerStyle = {
   position: "relative",
-  width: "70%",
+  width: "60%",
   height: "40%",
 }
 

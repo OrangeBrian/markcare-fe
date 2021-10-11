@@ -2,6 +2,7 @@ import React from 'react';
 import loginImg from '../images/logo.png'
 import { Form, Icon, Input, Button, message } from "antd";
 import accessApi from '../apimethod/accessApi';
+import HeaderComp from './HeaderComp';
 const FormItem = Form.Item;
 
 
@@ -68,7 +69,7 @@ const Editprofile = () => {
             
             try {
 
-                accessApi.postUserApp(dataUserChange);
+                accessApi.postUpdateUserApp(dataUserChange);
 
                 console.log(dataUserChange);
 
@@ -77,7 +78,7 @@ const Editprofile = () => {
                 }, 100);
                 
                 setTimeout((e) => {
-                    //window.location.href = '/shop';                    
+                    window.location.href = '/shop';                    
                 }, 1000);
 
 
@@ -95,9 +96,7 @@ const Editprofile = () => {
 
     return (
         <div>
-            <div className="navBar1">
-                <a href="/shop" className="btn btn-primary btn-sm" role="button" aria-pressed="true">Volver</a>
-            </div>
+            <HeaderComp a="javascript: history.go(-1)"/>
             <hr />
             <div className={"lContainer"}>
                 <div className="lItem">

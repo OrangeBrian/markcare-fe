@@ -1,16 +1,25 @@
 import React from 'react';
 import FooterComp from './FooterComp';
 import HeaderComp from './HeaderComp';
+import accessApi from '../apimethod/accessApi';
+
+const idUser = localStorage.getItem('idUser');
+accessApi.getMyShifts(idUser);
 
 const Shop = () => {
-    
+
     const shops = JSON.parse(localStorage.getItem('dataShops'));
+    
 
     function clickShop(e){
         e.preventDefault();
         localStorage.setItem('shopSelected',e.target.value);
-        window.location.href= '/branch';    
-        
+        accessApi.getBranchOffices(e.target.value)
+        .then(
+        setTimeout((e) => {
+            window.location.href= '/branch';     
+        }, 1000)
+        )
     }
 
     return (

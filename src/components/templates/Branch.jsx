@@ -1,16 +1,12 @@
 import React from 'react';
 import FooterComp from './FooterComp';
-import accessApi from '../apimethod/accessApi';
 import HeaderComp from './HeaderComp';
 import Branchoffice from './branchoffices/branchoffice';
 
 const Branch = () => {
 
-    const shopSelect = localStorage.getItem('shopSelected');
-    
-    accessApi.getBranchOffices(shopSelect)
-    const branchOffices = JSON.parse(localStorage.getItem('dataBranchOffice'))    
-   
+    const branchOffices = JSON.parse(localStorage.getItem('dataBranchOffice'));
+
     return (
         <div>
             <HeaderComp a="/shop"/>

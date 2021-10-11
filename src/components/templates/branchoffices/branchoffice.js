@@ -32,5 +32,4 @@ const Branchoffice = (props) => {
         </div>
     );
 };
-
 export default Branchoffice;

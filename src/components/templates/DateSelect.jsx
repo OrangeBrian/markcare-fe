@@ -2,23 +2,29 @@ import React from 'react';
 import FooterComp from './FooterComp';
 import HeaderComp from './HeaderComp';
 
-var today = new Date();
-var dd = today.getUTCDate();
-var mm = today.getMonth() + 1; //January is 0!
-var yyyy = today.getFullYear();
-
-if (dd < 10) {
-  dd = '0' + dd;
-}
-
-if (mm < 10) {
-  mm = '0' + mm;
-}
-
-today = yyyy + '-' + mm + '-' + dd;
-
-
 const DateSelect = () => {
+
+    const dataBranchId = localStorage.getItem('dataBranchId');
+    const dataApiUser = JSON.parse(window.localStorage.getItem('dataUserByEmail'));
+
+    function today(){
+
+        var today = new Date();
+        var dd = today.getUTCDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        
+        if (dd < 10) {
+          dd = '0' + dd;
+        }
+        
+        if (mm < 10) {
+          mm = '0' + mm;
+        }
+        
+        today = yyyy + '-' + mm + '-' + dd;
+    
+    }    
 
     function handleDateSelect(e){
         
@@ -31,7 +37,19 @@ const DateSelect = () => {
 
         localStorage.setItem('datetimeAppointment',dateAppointment);
         localStorage.setItem('dateAppointment',dateSelect);
-        localStorage.setItem('hourAppointment',hourSelect);
+        localStorage.setItem('hourAppointment',hourSelect + ':00');
+
+        const sendShift= {
+            "branchOffice": {
+                "id": parseInt(dataBranchId)
+            },
+            "customer": {
+                "id": parseInt(dataApiUser.id)
+            },
+            "dateAppointment": dateAppointment
+        }
+
+        localStorage.setItem('sendShift',JSON.stringify(sendShift));
         
         window.location.href='/dateconfirm'
 
@@ -53,7 +71,7 @@ const DateSelect = () => {
                         <input 
                             type="date" 
                             id="dateSelect" 
-                            min={today} 
+                            min={today()} 
                             max="2021-12-31" 
                             step="1"
                         />

@@ -1,8 +1,7 @@
 import axios from "axios";
 
-// Register y Editprofile(aca se tiene que enviar por id).
+// Post para Register 
 const postUserApp = async (sendData) =>{
-    
     
         await axios ({
             method:'POST',
@@ -17,21 +16,40 @@ const postUserApp = async (sendData) =>{
 
 }
 
+// Post para Edit Profile
+const postUpdateUserApp = async (sendData) =>{
+    
+    await axios ({
+        method:'POST',
+        url: 'https://markcare-be.herokuapp.com/api/customer/update',
+        data: sendData
+    })
+    .then(res =>{
+        localStorage.setItem('status',res.status);
+        getUserByMail(sendData.email);
+        return res.status
+    })
+    .catch( err =>{
+        localStorage.setItem('status','error');
+        console.log(err);
+    })
+
+}
+
 //Post para enviar datos del turno.
 const postAppointment = async (sendData) =>{
-    try {
+    
+    await axios ({
+        method:'POST',
+        url: 'https://markcare-be.herokuapp.com/api/appointment/save',
+        data: sendData
+    })
+    .then(res =>{
+        localStorage.setItem('status',res.status);
+        return res.status
+    })
+    .catch(localStorage.setItem('status','error'));
 
-        await axios ({
-            method:'POST',
-            url: 'https://markcare-be.herokuapp.com/api/appointment/save',
-            data: sendData
-        }).then(res => console.log(res.status))
-
-    } catch (err) {
-
-        console.log(err);
-
-    }
 }
 
 //Get para tomar datos de usuario.
@@ -56,6 +74,7 @@ const getUserByMail =  async (email) =>{
 
         const apiApp =  await axios(`https://markcare-be.herokuapp.com/api/customer/find/email/${email}`);
         localStorage.setItem('dataUserByEmail', JSON.stringify(apiApp.data));
+        localStorage.setItem('idUser', apiApp.data.id);
 
     } catch (err) {
 
@@ -110,4 +129,4 @@ const getMyShifts = async (idUser)=>{
     }
 }
 
-export default {postUserApp,getUserApp,getUserByMail,getShops,getBranchOffices,postAppointment,getMyShifts};
+export default {postUserApp,getUserApp,getUserByMail,getShops,getBranchOffices,postAppointment,getMyShifts,postUpdateUserApp};

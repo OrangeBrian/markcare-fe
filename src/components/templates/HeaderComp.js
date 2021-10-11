@@ -19,17 +19,15 @@ const menu = (
 
 function HeaderComp(a) {
 
-
     return (
     <div className="navBar2" >
         <div className="back">
-            <a href="javascript: history.go(-1)" role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
-        
+            <a href={a.a} role="button" className="back" aria-pressed="true"><LeftOutlined /></a>
         </div>
         <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                 <MenuOutlined />
-            </a>
+            </div>
         </Dropdown>
     </div>
     );
