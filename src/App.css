@@ -358,7 +358,7 @@ hr {
   justify-items: center;
   background-color: #f6f6f6;
   text-align: left;
-  padding-bottom: 25%;
+  padding-bottom: 30%;
 }
 .BranchContainer .row{
   margin:0%;
@@ -368,7 +368,6 @@ hr {
 .BranchContainer img {
   width: 50%;
   margin-top: 10%;
-  margin-bottom: 5%;
 }
 
 .BranchContainer h3 {
@@ -377,8 +376,9 @@ hr {
 }
 .BranchContainer .row{
   width: 100%;
+  padding: 0%;
 }
-.BranchContainer  .row font {
+.BranchContainer  h4 {
  font-size: 14px;
 }
 .BranchContainer  .row button {
