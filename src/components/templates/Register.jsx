@@ -139,7 +139,7 @@ const Register = () => {
             <div className={"lContainer"}>
                 <div className="lItem">
                     <div className="registerImage">
-                        <img src={loginImg} width="300" alt="register" />
+                        <img src={loginImg} alt="register" />
                     </div>
                     <div className="registerForm">
                         <h2>Registro</h2>

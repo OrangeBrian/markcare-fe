@@ -86,10 +86,10 @@ hr {
   width: 100%;
 }
 
-.logomc {
-  width: 80%;
-  margin-top: 35%;
-  margin-bottom: 15%;
+.registerImage img{
+width: 80%;
+margin-top: 35%;
+margin-bottom: 15%;
 }
 
 .register-form .register-form-button {
@@ -120,6 +120,12 @@ hr {
 }
 
 /*login*/
+
+.logomc {
+  width: 80%;
+  margin-top: 35%;
+  margin-bottom: 15%;
+}
 
 .login-form {
   width: 300px;
