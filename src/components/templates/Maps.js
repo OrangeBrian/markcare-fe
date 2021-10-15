@@ -5,6 +5,7 @@ const containerStyle = {
   position: "relative",
   width: "60%",
   height: "40%",
+  border:"10%",
 }
 
 var latitud = localStorage.getItem("latitude");

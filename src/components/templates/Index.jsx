@@ -47,7 +47,7 @@ const Inicio = () => {
                 </div>
                 <div className="col">
                     <img src={ubicacion} alt="calendario" />
-                    <h6>Según tu ubicacion elegi la secursal mas cercana</h6>
+                    <h6>Según tu ubicación elegi la secursal mas cercana</h6>
                 </div>
                 <div className="col">
                     <img src={barbijo} alt="calendario" />
