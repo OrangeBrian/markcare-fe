@@ -14,7 +14,7 @@ import compras from "../images/compras.png";
 import www from "../images/www.png";
 import accesoLogo from "../images/accesoLogo.png";
 import FooterComp from './FooterComp';
-import Carrusel from './Carrusel';
+import Carousel from './Carousel';
 
 const Inicio = () => {
 
@@ -34,7 +34,7 @@ const Inicio = () => {
                 </div>
             </div>
             <div className="carrusel">
-                 <Carrusel/>
+                 <Carousel />
                 <div class="centrado">Compra de forma segura con MarkCare <br/> ¡Una App que te cuida!</div>
             </div>
             <div className={"fondoGris1"}>
