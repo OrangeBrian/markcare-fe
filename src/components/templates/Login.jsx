@@ -96,7 +96,7 @@ const Login = () => {
                     <div className="lItem">
                         <img src={loginImg} className="logomc" alt="login" />
                         <div className="loginForm">
-                        <h2>Login</h2>
+                        <h2>Ingreso</h2>
                             <Form onSubmit={handleLogin} className="login-form">
                                 <FormItem>
                                     <Input
