@@ -119,7 +119,7 @@ const Login = () => {
                                         htmlType="submit"
                                         className="login-form-button"
                                     >
-                                        Login
+                                        Ingresar
                                     </Button>
                                 </FormItem>
                             </Form>

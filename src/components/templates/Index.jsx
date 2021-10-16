@@ -27,7 +27,7 @@ const Inicio = () => {
 
                 <div className="buttons">
 
-                    <a href="/login" className="btn" role="button" aria-pressed="true">Login</a>
+                    <a href="/login" className="btn" role="button" aria-pressed="true">Ingreso</a>
 
                     <a href="/register" className="btn" role="button" aria-pressed="true">Registro</a>
 
