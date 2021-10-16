@@ -30,7 +30,7 @@ const Inicio = () => {
 
                     <a href="/login" className="btn" role="button" aria-pressed="true">Login</a>
 
-                    <a href="/register" className="btn" role="button" aria-pressed="true">Register</a>
+                    <a href="/register" className="btn" role="button" aria-pressed="true">Registro</a>
 
                 </div>
             </div>
