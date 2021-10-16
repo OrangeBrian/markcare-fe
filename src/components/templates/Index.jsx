@@ -1,6 +1,5 @@
 import React from 'react';
 import loginImg from '../images/logo.png';
-import indexImg from '../images/fondo-super.jpg';
 import calendario from '../images/calendario.png';
 import comercio from '../images/comercio.png';
 import ubicacion from '../images/ubicacion.png';
