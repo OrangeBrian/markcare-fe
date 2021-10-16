@@ -15,6 +15,7 @@ import compras from "../images/compras.png";
 import www from "../images/www.png";
 import accesoLogo from "../images/accesoLogo.png";
 import FooterComp from './FooterComp';
+import Carrusel from './Carrusel';
 
 const Inicio = () => {
 
@@ -33,8 +34,9 @@ const Inicio = () => {
 
                 </div>
             </div>
-            <div className="indexImg">
-                <img className='centerImg' src={indexImg} alt="indexImage" />
+            <div className="carrusel">
+                 <Carrusel/>
+                <div class="centrado">Compra de forma segura con MarkCare <br/> ¡Una App que te cuida!</div>
             </div>
             <div className={"fondoGris1"}>
                 <div className="col">
