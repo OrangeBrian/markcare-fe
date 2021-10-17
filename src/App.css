@@ -441,7 +441,9 @@ margin-bottom: 15%;
 }
 
 /* index */
-
+.sr-only{
+  font-size:  0;
+}
 .carrusel img{
  width:100%;
 }
