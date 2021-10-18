@@ -1,12 +1,8 @@
 import React, { Component }  from 'react';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import credentials from '../credentials/credentials';
 
-const containerStyle = {
-  position: "relative",
-  width: "60%",
-  height: "40%",
-  border:"10%",
-}
+
 
 var latitud = localStorage.getItem("latitude");
 var longitud = localStorage.getItem("longitude");
@@ -16,8 +12,8 @@ class Mapa extends Component{
     return (
     <div className ="mapContainer">
      <Map
+          style={{ width: '68%', height: '50%' }}
           google={this.props.google}
-          style={containerStyle}
           initialCenter={{
             lat: latitud,
             lng: longitud,
@@ -33,5 +29,5 @@ class Mapa extends Component{
   }
 }
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyBk-g4NaQI6ajOosRD3QNzeb2X0w8YF3aI")
+  apiKey: (credentials.mapsKey) 
 })(Mapa)
