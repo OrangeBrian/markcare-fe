@@ -314,8 +314,8 @@ margin-bottom: 15%;
 }
 
 .shopContainer .row .imgStore:hover{
-  transform: rotatey(360deg);
-  transition: 2s;
+  transform:perspective(400px) scaleZ(1) translateZ(-100px);
+  transition: 1s;
 }
 
 
