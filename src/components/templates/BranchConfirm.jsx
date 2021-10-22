@@ -11,7 +11,7 @@ const BranchConfirm = () => {
             <hr />
             <div className="branchConfirmContainer">
                 <h3>Confirma la sucursal seleccionada</h3>
-                <a href="/dateselect" className="btn" role="button" aria-pressed="true">Confirmar</a>
+                <a href="/dateselect" className="btn" aria-pressed="true">Confirmar</a>
                 <div className="mapCont">
                     <Maps />
                 </div>

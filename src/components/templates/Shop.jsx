@@ -42,7 +42,7 @@ const Shop = () => {
                                             src={shop.imageUrl}
                                             className="imgStore"
                                             alt="Register Address" 
-                                            style={{ position: "relative"}}
+                                            style={{ position: "relative" }}
                                             value={shop.id}
                                             onClick={clickShop}
                                         />                                      

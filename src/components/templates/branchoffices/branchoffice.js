@@ -17,7 +17,7 @@ const Branchoffice = (props) => {
                 <img
                 src={props.img}
                 className="rounded"
-                style={{'marginBottom':'3%'}}
+                style={{'marginBottom':'10%'}}
                 />
                 <h4>{props.street}</h4>
                 <h4>{props.city}</h4>

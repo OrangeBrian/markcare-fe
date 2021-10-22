@@ -147,10 +147,10 @@ margin-bottom: 15%;
 
 .loginForm .login-form-button {
   background-color: #0d4d90;
-  border: 0;
   margin-right: 20%;
   height: 35px;
   font-size: 110%;
+  border:none;
 }
 
 .login-form input {
@@ -262,7 +262,6 @@ margin-bottom: 15%;
   color: #fff;
   background: #0d4d90;
   width: 100%;
-  border: 0;
   border-radius: 5px;
   margin-bottom: 20%;
 }
@@ -307,17 +306,10 @@ margin-bottom: 15%;
   margin-bottom: 10%;
   margin-right: 3%;
   margin-left: 3%;
+  filter:drop-shadow(5px 5px 5px gray);
+  
 }
 
-.shopContainer a {
-  color: #fff;
-  background: #0d4d90;
-  width: 20%;
-  height: 40px;
-  border: 0;
-  border-radius: 5px;
-  margin-bottom: 10%;
-}
 
 /*navbar*/
 
@@ -331,7 +323,6 @@ margin-bottom: 15%;
   background: #0d4d90;
   margin-left: 2%;
   border-radius: 5px;
-  border: none;
   width: 20%;
   font-size: 90%;
   height: 35px;
@@ -373,6 +364,8 @@ margin-bottom: 15%;
 .BranchContainer img {
   width: 50%;
   margin-top: 10%;
+  margin-bottom: 20%;
+  filter:drop-shadow(5px 5px 5px gray);
 }
 
 .BranchContainer h3 {
@@ -386,17 +379,15 @@ margin-bottom: 15%;
 .BranchContainer  h4 {
  font-size: 14px;
 }
-.BranchContainer  .row button {
-  align-items: baseline;
- }
+
  
 .BranchContainer button {
   text-align: center;
   color: #fff;
   background: #0d4d90;
-  border: 0;
   border-radius: 5px;
   margin-top: 10%;
+  border:none;
 }
 
 /*branchconfirm*/
@@ -479,7 +470,6 @@ margin-bottom: 15%;
   background: #0d4d90;
   margin-right: 4%;
   border-radius: 5px;
-  border: none;
   width: 30%;
   font-size: 90%;
   height: 35px;
@@ -657,4 +647,37 @@ footer img:hover {
   transition: 0.4s;
 }
 
-/*FIN FOOTER*/
+/*BUTTONS EFFECTS*/
+
+.btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: black;
+  border: 1px solid
+  }
+
+.lContainer button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: black;
+  border: 1px solid;
+  }
+
+#boton:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: black;
+  border: 1px solid;
+  }
+
+.ant-dropdown-link :hover{
+  background-color: rgb(255, 255, 255);
+  color: rgb(124, 117, 117);
+  cursor:pointer;
+  }
+
+.navBar2 a :hover{
+  background-color: rgb(255, 255, 255);
+  color: rgb(124, 117, 117);
+  cursor:pointer;
+  }

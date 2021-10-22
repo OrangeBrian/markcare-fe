@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderComp from './HeaderComp';
 import Shift from './shifts/shift';
-
+import FooterComp from './FooterComp';
 const Myshifts = () => {
     
     const getMyshifts = JSON.parse(localStorage.getItem('dataMyShifts'));
@@ -30,7 +30,11 @@ const Myshifts = () => {
                         })
                     }
                 </div>
-            </div>
+            </div> 
+            <footer>
+                <FooterComp/>
+           </footer>
+
         </div>
     )
 }
