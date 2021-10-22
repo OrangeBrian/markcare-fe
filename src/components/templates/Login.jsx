@@ -124,6 +124,9 @@ const Login = () => {
                                 </FormItem>
                             </Form>
                         </div>
+                        <div className="newUser">
+                        <a href="/Register" style={{color:"grey"}}>Nuevo usuario</a>
+                        </div>
                     </div>
                 </div>
             </div>

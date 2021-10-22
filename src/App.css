@@ -139,7 +139,6 @@ margin-bottom: 15%;
   background-color: white;
   padding-left: 30px;
   padding-top: 20px;
-  margin-bottom: 60%;
   width: 100%;
   border-radius: 2%;
   border: 1px solid #d8d8da;
@@ -159,6 +158,11 @@ margin-bottom: 15%;
 
 .login-form button {
   width: 80%;
+}
+.newUser{
+  margin-top: 5%;
+  margin-bottom: 50%;
+  color: #6e6d6d;
 }
 
 /*location*/
